@@ -1,0 +1,33 @@
+.header {
+  width: 100%;
+  height: 95px;
+}
+.header .headerContent {
+  width: 100%;
+  padding: 20px 50px;
+  transition: all 0.3s ease;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.8784313725);
+  backdrop-filter: blur(7px);
+  z-index: 1000;
+}
+.header .headerContent.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  animation: slideDown 0.3s ease forwards;
+}
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.header .headerLogo svg {
+  width: 300px;
+  height: auto;
+}
+
+/*# sourceMappingURL=Header.module.css.map */
