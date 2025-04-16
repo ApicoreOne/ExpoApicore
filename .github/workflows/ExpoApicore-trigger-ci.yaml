@@ -13,7 +13,7 @@ jobs:
       - name: Trigger CI in devops-configs
         run: |
           curl -X POST \
-            -H "Authorization: token ${{ secrets.GHCR_TOKEN }}" \
+            -H "Authorization: token ${{ secrets.REPO_ACCESS_TOKEN }}" \
             -H "Accept: application/vnd.github.v3+json" \
             -d '{
               "event_type": "trigger-expo-apicore-ci",
