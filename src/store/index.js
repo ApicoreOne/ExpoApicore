@@ -1,10 +1,10 @@
 import {createStore, combineReducers} from "redux";
 import {composeWithDevTools} from "@redux-devtools/extension";
-import {texpoReducer} from "./reducers/texpoReducer.jsx";
+import {exponentReducer} from "./reducers/exponentReducer.jsx";
 
 
 const rootReducer = combineReducers({
-	texpo: texpoReducer
+	exponent: exponentReducer()
 });
 
 export const store = createStore(rootReducer, composeWithDevTools());
