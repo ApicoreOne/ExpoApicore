@@ -1,34 +1,27 @@
-name: Trigger ExpoApicore CI/CD
+name: Trigger DevOps CI for expo.apicore.one
 
 on:
-  pull_request:
-    branches:
-      - main
-    types: [opened, synchronize, reopened]
   push:
     branches:
       - main
   workflow_dispatch:
 
 jobs:
-  trigger:
+  trigger-ci:
     runs-on: ubuntu-latest
-    if: |
-      github.event_name == 'workflow_dispatch' ||
-      (github.event_name == 'pull_request' && github.base.ref == 'main' && github.head.ref == 'develop') ||
-      (github.event_name == 'push' && github.ref_name == 'main')
     steps:
-      - name: Repository Dispatch
-        uses: peter-evans/repository-dispatch@v2
-        with:
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
-          repository: ApicoreOne/devops-configs
-          event-type: trigger-expo-apicore-ci
-          client-payload: |
-            {
-              "ref": "${{ github.head_ref || github.ref_name }}",
-              "sha": "${{ github.sha }}",
-              "repository": "${{ github.repository }}",
-              "event_name": "${{ github.event_name }}",
-              "pr_number": "${{ github.event.number }}"
-            } 
+      - name: Trigger CI in devops-configs
+        run: |
+          curl -X POST \
+            -H "Authorization: token ${{ secrets.GHCR_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            -d '{
+              "event_type": "trigger-expo-apicore-ci",
+              "client_payload": {
+                "ref": "${{ github.ref }}",
+                "sha": "${{ github.sha }}",
+                "repository": "${{ github.repository }}",
+                "event_name": "${{ github.event_name }}"
+              }
+            }' \
+            https://api.github.com/repos/ApicoreOne/devops-configs/dispatches 
