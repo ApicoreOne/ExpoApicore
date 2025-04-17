@@ -1,5 +1,4 @@
 import styles from './ExponentItem.module.scss'
-import exponentTest from '@/images/exponentTest.png'
 
 import InstagramLogo from '@/images/social/instagram.svg?react';
 import TelegramLogo from '@/images/social/telegram.svg?react';
@@ -32,10 +31,12 @@ const ExponentItem = ({item}) => {
 		}
 	]
 
+	console.log(item)
+
 	return(
 		<div className={styles.exponentItem}>
 			<div className={styles.exponentItemImg}>
-				<img src={exponentTest} alt="test"/>
+				<img src={item.logo_link} alt="test"/>
 			</div>
 
 			<div className={styles.exponentName}>
