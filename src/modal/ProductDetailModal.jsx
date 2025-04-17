@@ -19,7 +19,7 @@ import DetailPrice from "./components/ProductDetail/DetailPrice";
 import Cookies from "js-cookie";
 
 import closeBtn from '../images/burger-language-arrow.svg?react';
-import infoImg from "../images/info.svg?react";
+import infoImg from "../images/info.svg";
 import StarLined from '../images/texpo/star-lined.svg?react'
 import StarFilled from '../images/texpo/star-filled.svg?react'
 import {ReactSVG} from "react-svg";
