@@ -36,7 +36,7 @@ const ExponentItem = ({item}) => {
 	return(
 		<div className={styles.exponentItem}>
 			<div className={styles.exponentItemImg}>
-				<img src={item.logo_link} alt="test"/>
+				<img src={item.logo_link} alt={item.name}/>
 			</div>
 
 			<div className={styles.exponentName}>
