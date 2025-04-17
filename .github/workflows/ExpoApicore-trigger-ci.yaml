@@ -1,0 +1,27 @@
+name: Trigger DevOps CI for expo.apicore.one
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  trigger-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger CI in devops-configs
+        run: |
+          curl -X POST \
+            -H "Authorization: token ${{ secrets.REPO_ACCESS_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            -d '{
+              "event_type": "trigger-expo-apicore-ci",
+              "client_payload": {
+                "ref": "${{ github.ref }}",
+                "sha": "${{ github.sha }}",
+                "repository": "${{ github.repository }}",
+                "event_name": "${{ github.event_name }}"
+              }
+            }' \
+            https://api.github.com/repos/ApicoreOne/devops-configs/dispatches 
