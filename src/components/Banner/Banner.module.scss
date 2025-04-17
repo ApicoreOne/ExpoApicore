@@ -1,19 +1,45 @@
-.banner{
+.banner {
   width: 100%;
+  height: 600px; /* или по вашему усмотрению */
+  position: relative;
   padding: 20px 50px;
+  background-color: #742edc; /* Это может быть ненужным, так как фон будет задаваться Vanta.js */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  @media screen and (max-width: 1024px){
+  @media screen and (max-width: 1024px) {
     padding: 20px;
+    height: 400px;
   }
 
-  .bannerImg{
-    box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.75);
-    max-height: 800px;
+  @media screen and (max-width: 768px) {
+    height: 200px;
   }
 
-  img{
+  .bannerImg {
+    padding: 50px;
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @media screen and (max-width: 1024px){
+      width: 60%;
+    }
+
+    @media screen and (max-width: 768px){
+      width: 60%;
+    }
+
+    @media screen and (max-width: 650px){
+      width: 90%;
+    }
+  }
+
+  svg {
     width: 100%;
     height: 100%;
-    max-height: 800px;
   }
 }
