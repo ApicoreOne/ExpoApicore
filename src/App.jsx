@@ -2,16 +2,23 @@ import {useDispatch, useSelector} from "react-redux";
 import Header from "@/components/Header/Header.jsx";
 import './styles/general.scss'
 import './styles/normalize.css'
+import '@/styles/Modal.scss'
 import Banner from "@/components/Banner/Banner.jsx";
 import Exponent from "@/components/Exponent/Exponent.jsx";
 import MultiModal from "@/components/MultiModal/MultiModal.jsx";
 import Overlay from "@/components/Overlay/Overlay.jsx";
 import {useEffect} from "react";
+import Cookies from "js-cookie";
 
 function App() {
 
   const modals = useSelector(state => state.multiModal.modals)
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    const favoriteProductCookies = Cookies.get('favoriteProduct') ? JSON.parse(Cookies.get('favoriteProduct')) : []
+    dispatch({type: "SET_FAVORITE_LIST", favoriteList: favoriteProductCookies})
+  },[])
 
   // Закрытие модального окна по нажатию на Escape
   const handleKeyDown = (event) => {

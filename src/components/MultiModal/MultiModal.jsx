@@ -1,10 +1,14 @@
 import styles from './MultiModal.module.scss';
 import {useDispatch, useSelector} from "react-redux";
-import {useViewportHeight, useWindowWidth} from "@/hooks";
 
 import closeBtn from '@/images/closeModal.svg'
 import QRModal from "@/modal/QRModal/QRModal";
 import {useEffect} from "react";
+import ExpoRegisterUser from "@/modal/ExpoRegisterUser/ExpoRegisterUser.jsx";
+import ModalCatalogList from "@/modal/ModalCatalogList/ModalCatalogList.jsx";
+import ProductDetailModal from "@/modal/ProductDetailModal.jsx";
+import CategoryListMobileModal from "@/modal/CategoryListMobileModal.jsx";
+import FavoriteProductListModal from "@/modal/FavoriteProductListModal.jsx";
 
 const MultiModal = () => {
 
@@ -14,11 +18,6 @@ const MultiModal = () => {
 	const closeModal = (modalLevel) =>{
 		dispatch({type: "CLOSE_MODAL", modalLevel: modalLevel})
 	}
-
-	const viewportHeight = useViewportHeight();
-	const windowWidth = useWindowWidth();
-
-
 	// Локаем страницу и делаем так чтобы он не прыгал
 	useEffect(() => {
 		const hasOpenModal = modals.some(modal => modal.modalIsOpen);
@@ -55,6 +54,11 @@ const MultiModal = () => {
 
 						{/*В зависимоти от переданного значения будет открываться определенное модальное окно*/}
 						{modal.modalType === 'qrModal' && <QRModal/>}
+						{modal.modalType === 'expoRegisterUser' && <ExpoRegisterUser/>}
+						{modal.modalType === 'modalCatalogList' && <ModalCatalogList/>}
+						{modal.modalType === 'productDetailModal' && <ProductDetailModal/>}
+						{modal.modalType === 'categoryListMobileModal' && <CategoryListMobileModal />}
+						{modal.modalType === 'favoriteProductListModal' && <FavoriteProductListModal />}
 					</div>
 				</div>
 			)

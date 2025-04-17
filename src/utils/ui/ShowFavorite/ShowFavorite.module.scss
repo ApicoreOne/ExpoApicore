@@ -1,0 +1,16 @@
+.favorite{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  @media screen and (max-width: 600px){
+    span{
+      display: none;
+    }
+  }
+  svg{
+    width: 30px;
+    height: 30px;
+    fill: #fe2942;
+  }
+}

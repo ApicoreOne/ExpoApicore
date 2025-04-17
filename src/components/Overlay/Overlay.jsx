@@ -13,13 +13,13 @@ const Overlay = () =>{
 	return(
 		<>
 			<div
-				className={`${styles.overlay} ${modalIsOpenLevel1 ? '' : styles.hide}`}
+				className={`${styles.overlay} ${styles.overlayLevel_1} ${modalIsOpenLevel1 ? '' : styles.hide}`}
 				onClick={() => changeShowOverlay(1)}></div>
 			<div
-				className={`${styles.overlay} ${modalIsOpenLevel2 ? '' : styles.hide}`}
+				className={`${styles.overlay} ${styles.overlayLevel_2} ${modalIsOpenLevel2 ? '' : styles.hide}`}
 				onClick={() => changeShowOverlay(2)}></div>
 			<div
-				className={`${styles.overlay} ${modalIsOpenLevel3 ? '' : styles.hide}`}
+				className={`${styles.overlay} ${styles.overlayLevel_3} ${modalIsOpenLevel3 ? '' : styles.hide}`}
 				onClick={() => changeShowOverlay(3)}></div>
 		</>
 	)

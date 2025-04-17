@@ -1,8 +1,10 @@
 import styles from './Exponent.module.scss'
 import {useEffect} from "react";
 import {api} from "@/api/index.js";
-import {ExponentItem} from "@/utils/ui/index.js";
+import {ExponentItem, ShowFavorite} from "@/utils/ui/index.js";
 import {useDispatch, useSelector} from "react-redux";
+import {useURLParamWatcher} from "@/hooks/index";
+import Cookies from 'js-cookie';
 
 const Exponent = () => {
 	const dispatch = useDispatch();
@@ -21,15 +23,38 @@ const Exponent = () => {
 		}
 	}
 
+	useURLParamWatcher('catalog', (catalogHash) => {
+		// Получаем идентификатор пользователя из cookie
+		const ExpoIDUser = Cookies.get('expo_user_id');
+		if(catalogHash !== null){
+			if(ExpoIDUser) {
+				dispatch({
+					type: "OPEN_MODAL",
+					modalType: 'modalCatalogList',
+					modalLevel: 1,
+					modalData: {hash: catalogHash},
+					modalWidth: 'large'
+				});
+			}else{
+				dispatch({type: "OPEN_MODAL", modalType: 'expoRegisterUser', modalLevel : 1,  modalData: {hash: catalogHash}});
+			}
+		}
+	})
+
 	useEffect(() => {
 		getData()
 	}, []);
 
 	return(
 		<div className={styles.exponent}>
-			<div className={styles.exponentTitle}>
-				<span>Экспоненты</span>
+			<div className={styles.exponentHead}>
+				<div className={styles.exponentTitle}>
+					<span>Экспоненты</span>
+				</div>
+
+				<ShowFavorite />
 			</div>
+
 
 			<div className={styles.exponentItems}>
 				{

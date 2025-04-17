@@ -1,0 +1,88 @@
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper {
+  width: 100%;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+
+.swiperCard {
+  height: 35%;
+  width: 100%;
+  border: 1px solid #e1dfe1;
+  border-radius: 15px;
+}
+
+.swiperCard .swiper-slide{
+  width: 400px;
+  cursor: grab;
+
+  @media screen and (min-width: 426px) and (max-width: 1025px){
+    height: 400px !important;
+  }
+
+}
+
+.swiperItems {
+  height: 20%;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+.swiperItems .swiper-slide {
+  height: auto;
+  border: 1px solid #e1dfe1;
+  border-radius: 15px;
+  cursor: pointer;
+  opacity: 0.4;
+
+  @media screen and (min-width: 426px) and (max-width: 1025px){
+    max-height: 100px;
+    min-height: 100px;
+  }
+
+  img{
+    width: 75%;
+    height: 75%;
+    object-fit: contain;
+  }
+}
+
+
+.swiperItems .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+}

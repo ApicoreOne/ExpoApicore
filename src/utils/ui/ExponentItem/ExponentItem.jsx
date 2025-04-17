@@ -5,9 +5,9 @@ import InstagramLogo from '@/images/social/instagram.svg?react';
 import TelegramLogo from '@/images/social/telegram.svg?react';
 import WhatsappLogo from '@/images/social/whatsapp.svg?react';
 import YoutubeLogo from '@/images/social/youtube.svg?react';
-import ExponentQrCode from "@/utils/ui/ExponentQrCode/ExponentQrCode.jsx";
+import {ExponentQrCode, ExponentShowCatalog} from "@/utils/ui/";
 
-const ExponentItem = ({item, key}) => {
+const ExponentItem = ({item}) => {
 
 	const socials = [
 		{
@@ -33,7 +33,7 @@ const ExponentItem = ({item, key}) => {
 	]
 
 	return(
-		<div className={styles.exponentItem} key={key}>
+		<div className={styles.exponentItem}>
 			<div className={styles.exponentItemImg}>
 				<img src={exponentTest} alt="test"/>
 			</div>
@@ -43,7 +43,8 @@ const ExponentItem = ({item, key}) => {
 			</div>
 
 			<div className={styles.exponentType}>
-				<span>Lorem ipsum dolor sit amet.</span>
+				<span>{item.contact}</span>
+				<a href={`tel:+${item.phone}`}>{item.phone}</a>
 			</div>
 
 			<div className={styles.exponentSocials}>
@@ -64,7 +65,10 @@ const ExponentItem = ({item, key}) => {
 			<div className={styles.exponentCatalogs}>
 				{
 					item?.catalog?.qr && (
-						<ExponentQrCode item={item} />
+						<>
+							<ExponentQrCode item={item} />
+							<ExponentShowCatalog item={item} />
+						</>
 					)
 				}
 			</div>

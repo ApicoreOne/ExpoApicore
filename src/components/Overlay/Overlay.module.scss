@@ -11,6 +11,18 @@
   cursor: pointer;
 }
 
+.overlayLevel_1 {
+  z-index: 40;
+}
+
+.overlayLevel_2 {
+  z-index: 41;
+}
+
+.overlayLevel_3 {
+  z-index: 42;
+}
+
 .hide {
   opacity: 0 !important;
   visibility: hidden !important;

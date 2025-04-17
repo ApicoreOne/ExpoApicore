@@ -1,0 +1,134 @@
+.texpoRegister {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-right: 30px;
+  overflow-y: auto;
+
+  .items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .buttonWrapper {
+    position: relative;
+    bottom: -20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .formItem {
+      width: 150px;
+    }
+  }
+}
+
+.modalTitle {
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
+.modalSubtitle {
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.formItem {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  transition: all 0.2s;
+
+  label {
+    transform: translateY(-60%);
+    position: absolute;
+    left: 18px;
+    transition: all .2s ease;
+    color: #757575;
+    font-size: 0.75rem;
+    top: 0;
+    padding: 0 10px;
+    background: #fff;
+  }
+
+  input {
+    width: 100%;
+    height: 44px;
+    padding: 5px 10px 5px 17px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    outline: none;
+  }
+}
+
+.formError {
+  margin-top: 20px;
+  font-size: 0.875rem;
+  color: #e30101;
+  text-align: center;
+}
+
+.formItem .preloader {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  height: 25px;
+  width: 25px;
+  z-index: 3;
+  display: none;
+  cursor: pointer;
+}
+
+.formItem.load .preloader {
+  display: block;
+}
+
+.authBtn,
+.registerBtn {
+  position: relative;
+  padding: 10px;
+  height: 44px;
+  border-radius: 50px;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  border: 0 solid #0184db;
+  background-color: transparent;
+  color: #fff;
+  overflow: hidden;
+  cursor: pointer;
+  width: 100%;
+  font-size: 90%;
+  transition: all 0.4s ease;
+  font-family: 'Montserrat', sans-serif;
+  z-index: 2;
+
+  &.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: linear-gradient(90deg, #6c6cc7, #5757b7);
+    z-index: 1;
+    height: 100%;
+    transition: all 0.2s ease;
+  }
+
+  span {
+    position: relative;
+    z-index: 2;
+    font-size: 1rem;
+  }
+}
