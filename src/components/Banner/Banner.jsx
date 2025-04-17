@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import styles from './Banner.module.scss';
+
 import TexpoLogo from '@/images/TexpoBanner.svg?react';
-import {useWindowWidth} from "@/hooks/index.js";
+
+import {useWindowWidth} from "@/hooks/index";
 
 const Banner = () => {
 	const bannerRef = useRef(null);
@@ -24,10 +26,6 @@ const Banner = () => {
 			setVantaSize(9); // для экранов 4K
 		}
 	}, [windowWidth]);
-
-	useEffect(() => {
-		console.log('Vanta size changed:', vantaSize);
-	}, [vantaSize]);
 
 
 	useEffect(() => {
