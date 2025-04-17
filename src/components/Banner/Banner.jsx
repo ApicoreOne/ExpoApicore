@@ -4,7 +4,7 @@ import styles from './Banner.module.scss';
 
 import TexpoLogo from '@/images/TexpoBanner.svg?react';
 
-import {useWindowWidth} from "@/hooks/index";
+import { useWindowWidth } from "@/hooks/index";
 
 const Banner = () => {
 	const bannerRef = useRef(null);
@@ -13,50 +13,53 @@ const Banner = () => {
 	const [vantaEffect, setVantaEffect] = useState(null);
 	const [vantaSize, setVantaSize] = useState(null);
 
+	// Размер Vanta эффекта, зависит от ширины экрана
 	useEffect(() => {
 		if (windowWidth <= 480) {
-			setVantaSize(6); // для самых маленьких экранов
+			setVantaSize(6);
 		} else if (windowWidth <= 530) {
-			setVantaSize(7); // для планшетов
+			setVantaSize(7);
 		} else if (windowWidth <= 1440) {
-			setVantaSize(7); // для больших экранов
-		}else if (windowWidth <= 1920) {
-			setVantaSize(9); // для экранов 2K
-		}else{
-			setVantaSize(9); // для экранов 4K
+			setVantaSize(7);
+		} else if (windowWidth <= 1920) {
+			setVantaSize(9);
+		} else {
+			setVantaSize(9);
 		}
 	}, [windowWidth]);
 
-
+	// Инициализация Vanta после того, как DOM готов
 	useEffect(() => {
 		if (!vantaEffect) {
 			import('vanta/dist/vanta.halo.min').then((VANTA) => {
-				setVantaEffect(
-					VANTA.default({
-						el: bannerRef.current,
-						THREE,
-						mouseControls: true,
-						touchControls: true,
-						gyroControls: false,
-						baseColor: 0x742edc, // Фиолетовый цвет свечения
-						backgroundColor: 0x131a4, // Чёрный фон
-						amplitudeFactor: 1.5,
-						size: vantaSize, // Увеличиваем размер шара
-						xOffset: 0,
-						yOffset: 0,
-						speed: 1.0,
-						halo: true, // Добавляем эффект свечения
-						glowing: true, // Включаем свечение
-						color: 0x742edc, // Цвет свечения (фиолетовый)
-					})
-				);
+				const effect = VANTA.default({
+					el: bannerRef.current,
+					THREE,
+					mouseControls: true,
+					touchControls: true,
+					gyroControls: false,
+					baseColor: 0x742edc,
+					backgroundColor: 0x131a4,
+					amplitudeFactor: 1.5,
+					size: vantaSize,
+					xOffset: 0,
+					yOffset: 0,
+					speed: 1.0,
+					halo: true,
+					glowing: true,
+					color: 0x742edc,
+				});
+
+				setVantaEffect(effect);
 			});
 		}
 
 		return () => {
-			if (vantaEffect) vantaEffect.destroy();
+			if (vantaEffect) {
+				vantaEffect.destroy();
+			}
 		};
-	}, [vantaEffect, vantaSize]);
+	}, [vantaEffect, vantaSize]);  // Важное замечание: передаем в зависимости vantaEffect
 
 	return (
 		<div ref={bannerRef} className={styles.banner}>
