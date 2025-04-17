@@ -10,6 +10,11 @@
     background-color: #ffffffe0;
     backdrop-filter: blur(7px);
     z-index: 10;
+
+    @media screen and (max-width: 1024px){
+      padding: 20px;
+    }
+
     &.sticky {
       position: fixed;
       top: 0;
@@ -29,9 +34,18 @@
 
 
   .headerLogo {
+    width: max-content;
     svg {
       width: 300px;
       height: auto;
     }
+
+    @media screen and (max-width: 1024px){
+      margin: 0 auto;
+      svg{
+        width: 200px;
+      }
+    }
+
   }
 }

@@ -32,8 +32,6 @@ const ExponentItem = ({item, key}) => {
 		}
 	]
 
-	console.log(socials)
-
 	return(
 		<div className={styles.exponentItem} key={key}>
 			<div className={styles.exponentItemImg}>

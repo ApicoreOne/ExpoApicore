@@ -45,7 +45,6 @@ const MultiModal = () => {
 				<div
 					className={`${styles.multiModal} ${!modal.modalIsOpen ? styles.hide : ''} ${modal.modalWidth ? styles[modal.modalWidth] : ''} ${styles[`modalLevel${modal.modalLevel}`]}`}
 					key={index}
-					style={windowWidth < 1024 ? {height: viewportHeight - 76} : {height: viewportHeight}}
 				>
 					<div className={styles.container}>
 						<div className={styles.closeButton} onClick={() => {
