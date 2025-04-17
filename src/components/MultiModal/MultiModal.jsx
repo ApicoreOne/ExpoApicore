@@ -1,0 +1,66 @@
+import styles from './MultiModal.module.scss';
+import {useDispatch, useSelector} from "react-redux";
+import {useViewportHeight, useWindowWidth} from "@/hooks";
+
+import closeBtn from '@/images/closeModal.svg'
+import QRModal from "@/modal/QRModal/QRModal";
+import {useEffect} from "react";
+
+const MultiModal = () => {
+
+	const dispatch = useDispatch();
+	const modals = useSelector(state => state.multiModal.modals);
+
+	const closeModal = (modalLevel) =>{
+		dispatch({type: "CLOSE_MODAL", modalLevel: modalLevel})
+	}
+
+	const viewportHeight = useViewportHeight();
+	const windowWidth = useWindowWidth();
+
+
+	// Локаем страницу и делаем так чтобы он не прыгал
+	useEffect(() => {
+		const hasOpenModal = modals.some(modal => modal.modalIsOpen);
+
+		if (hasOpenModal) {
+			const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+			document.body.style.overflow = 'hidden';
+			document.body.style.paddingRight = `${scrollBarWidth}px`;
+		} else {
+			document.body.style.overflow = '';
+			document.body.style.paddingRight = '';
+		}
+
+		return () => {
+			document.body.style.overflow = '';
+			document.body.style.paddingRight = '';
+		};
+	}, [modals]);
+
+
+	return (
+		modals.map((modal, index) => {
+			return (
+				<div
+					className={`${styles.multiModal} ${!modal.modalIsOpen ? styles.hide : ''} ${modal.modalWidth ? styles[modal.modalWidth] : ''} ${styles[`modalLevel${modal.modalLevel}`]}`}
+					key={index}
+					style={windowWidth < 1024 ? {height: viewportHeight - 76} : {height: viewportHeight}}
+				>
+					<div className={styles.container}>
+						<div className={styles.closeButton} onClick={() => {
+							closeModal(modal.modalLevel)
+						}}>
+							<img src={`${closeBtn}`} alt="close"/>
+						</div>
+
+						{/*В зависимоти от переданного значения будет открываться определенное модальное окно*/}
+						{modal.modalType === 'qrModal' && <QRModal/>}
+					</div>
+				</div>
+			)
+		})
+	);
+}
+
+export default MultiModal;
