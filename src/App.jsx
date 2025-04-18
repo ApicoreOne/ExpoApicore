@@ -9,6 +9,9 @@ import MultiModal from "@/components/MultiModal/MultiModal.jsx";
 import Overlay from "@/components/Overlay/Overlay.jsx";
 import {useEffect} from "react";
 import Cookies from "js-cookie";
+import CheckAuth from "@/components/CheckAuth/CheckAuth.jsx";
+import {Toaster} from "react-hot-toast";
+import {TOAST_CONFIG} from "@/utils/config.js";
 
 function App() {
 
@@ -47,11 +50,14 @@ function App() {
 
   return (
     <div className={'apicore-expo'}>
-      <MultiModal />
-      <Overlay />
-      <Header />
-      <Banner />
-      <Exponent />
+      <CheckAuth>
+        <Toaster toastOptions={TOAST_CONFIG}/>
+        <MultiModal />
+        <Overlay />
+        <Header />
+        <Banner />
+        <Exponent />
+      </CheckAuth>
     </div>
   )
 }

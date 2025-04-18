@@ -1,0 +1,117 @@
+.input {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.2s;
+  width: 100%;
+
+  &.disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .inputLabel {
+    transform: translateY(-60%);
+    position: absolute;
+    left: 18px;
+    transition: all 0.2s ease;
+    color: #757575;
+    font-size: 0.75rem;
+    top: 0;
+    padding: 0 10px;
+    background: #fff;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .inputRequired {
+    cursor: pointer;
+  }
+
+  input {
+    width: 100%;
+    height: 44px;
+    font-size: 0.875rem;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    outline: none;
+    transition: all 0.4s ease;
+    padding: 5px 10px 5px 17px;
+  }
+
+  .textarea{
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 10px 15px 10px 17px;
+    transition: all .4s ease;
+    textarea {
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+      min-height: 44px;
+      font-size: 1rem;
+      border: 0;
+      outline: none;
+      padding-right: 5px;
+      transition: all 0.4s ease;
+    }
+  }
+
+
+  .inputError {
+    width: max-content;
+    text-align: start;
+    padding: 0 10px;
+    font-size: 0.75rem;
+    color: #fe2942;
+    position: absolute;
+    bottom: -4px;
+    left: 18px;
+    background-color: #fff;
+  }
+
+  .inputHelpIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      transition: all 0.4s ease;
+    }
+
+    &:hover {
+      svg {
+        fill: #fe2942;
+      }
+    }
+  }
+
+  .inputHelpTitle {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    bottom: -30px;
+    z-index: 100;
+    padding: 3px 8px;
+    color: black;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 15px;
+    right: 0;
+    transition: all 0.4s ease;
+
+    &.show {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

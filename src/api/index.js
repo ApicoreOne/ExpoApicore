@@ -1,10 +1,12 @@
 import {ExponentApi} from "@/api/exponentApi.js";
-import {TexpoApi} from "@/api/TexpoApi.js";
+import {UserApi} from "@/api/UserApi.js";
+import {AuthApi} from "@/api/AuthApi.js";
 
 export class Api {
 	constructor() {
 		this.exponentApi = new ExponentApi()
-		this.texpoApi = new TexpoApi()
+		this.userApi = new UserApi()
+		this.authApi = new AuthApi()
 	}
 }
 

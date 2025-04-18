@@ -9,6 +9,7 @@ import ModalCatalogList from "@/modal/ModalCatalogList/ModalCatalogList.jsx";
 import ProductDetailModal from "@/modal/ProductDetailModal.jsx";
 import CategoryListMobileModal from "@/modal/CategoryListMobileModal.jsx";
 import FavoriteProductListModal from "@/modal/FavoriteProductListModal.jsx";
+import AuthFormModal from "@/modal/AuthFormModal/AuthFormModal.jsx";
 
 const MultiModal = () => {
 
@@ -59,6 +60,7 @@ const MultiModal = () => {
 						{modal.modalType === 'productDetailModal' && <ProductDetailModal/>}
 						{modal.modalType === 'categoryListMobileModal' && <CategoryListMobileModal />}
 						{modal.modalType === 'favoriteProductListModal' && <FavoriteProductListModal />}
+						{modal.modalType === 'authFormModal' && <AuthFormModal />}
 					</div>
 				</div>
 			)

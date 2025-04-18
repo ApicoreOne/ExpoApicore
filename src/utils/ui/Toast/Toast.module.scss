@@ -1,0 +1,25 @@
+.toast{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 40px;
+  padding-left: 20px;
+  svg{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    fill: #fff;
+  }
+}
+
+.toastClose{
+  position: absolute;
+  background: transparent;
+  border: 0;
+  outline: none;
+  right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}

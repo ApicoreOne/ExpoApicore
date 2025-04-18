@@ -31,8 +31,6 @@ const ExponentItem = ({item}) => {
 		}
 	]
 
-	console.log(item)
-
 	return(
 		<div className={styles.exponentItem}>
 			<div className={styles.exponentItemImg}>

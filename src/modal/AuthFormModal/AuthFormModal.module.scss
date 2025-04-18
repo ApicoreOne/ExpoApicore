@@ -1,0 +1,22 @@
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  .modalTitle {
+    text-align: center;
+    font-size: 1.125rem;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .modalItems{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transition: all .4s ease;
+  }
+}

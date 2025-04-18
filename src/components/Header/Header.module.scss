@@ -7,6 +7,9 @@
   }
 
   .headerContent{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     padding: 20px 50px;
     transition: all 0.3s ease;

@@ -1,7 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
 import minus from "../../images/catalogs/category/minus.svg";
 import plus from "../../images/catalogs/category/plus.svg";
-import {useParams} from "react-router-dom";
 import {api} from "../../api";
 
 // Рекурсивный компонент для отображения категорий
@@ -10,8 +9,6 @@ const Category = ({ category, categories , modalLevel}) => {
 	const subCategories = categories.filter(subCategory => subCategory.parent_id === category.id);
 	const dispatch = useDispatch();
 	const level = category.depth_level;
-	let {distributor_id} = useParams();
-	const catalogCode = useSelector(state => state.catalog.catalogCode)
 	const currentCategoryId = useSelector(state => state.catalog.categoryList.currentCategoryId);
 	const catalogHash = useSelector(state => state.multiModal.modals[0].modalData.hash);
 
@@ -28,7 +25,7 @@ const Category = ({ category, categories , modalLevel}) => {
 				"filter": {"category_id": id}
 			}
 
-			const productList = await api.texpoApi.getCatalogProductList(body);
+			const productList = await api.exponentApi.getCatalogProductList(body);
 
 			if (!productList.next_offset) {
 				dispatch({

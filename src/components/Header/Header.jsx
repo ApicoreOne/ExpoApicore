@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 import styles from './Header.module.scss';
 import Logo from '@/images/ApicoreExpo.svg?react';
+import Account from "@/components/Account/Account.jsx";
 
 const Header = () => {
 	const [isSticky, setIsSticky] = useState(false);
@@ -10,7 +11,7 @@ const Header = () => {
 			setIsSticky(window.scrollY > 50); // меняем состояние при скролле вниз
 		};
 
-		window.addEventListener('scroll', handleScroll, { passive: true });
+		window.addEventListener('scroll', handleScroll, {passive: true});
 
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, []);
@@ -20,6 +21,9 @@ const Header = () => {
 			<div className={`${styles.headerContent} ${isSticky ? styles.sticky : ''}`}>
 				<div className={styles.headerLogo}>
 					<Logo/>
+				</div>
+				<div className={styles.headerAccount}>
+					<Account/>
 				</div>
 			</div>
 		</div>
