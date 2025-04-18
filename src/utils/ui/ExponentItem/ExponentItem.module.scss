@@ -1,3 +1,5 @@
+@import "@/styles/mixins";
+
 .exponentItem {
   display: flex;
   flex-direction: column;
@@ -12,7 +14,7 @@
   cursor: pointer;
   flex-grow: 1;
 
-  @media screen and (max-width: 1440px) {
+  @media screen and (max-width: 1600px) {
     width: calc(25% - 20px);
   }
   @media screen and (max-width: 1024px) {
@@ -43,18 +45,19 @@
   font-weight: 500;
   margin-bottom: .75rem;
   text-align: center;
-  height: 45px;
+  height: 43px;
+  @include title_limit(2);
 }
 
 .exponentType {
   color: #637381;
   font-size: 0.875rem;
   margin-bottom: 1.25rem;
-
   display: flex;
   flex-direction: column;
   gap: 10px;
   align-items: center;
+  text-align: center;
   a{
     text-decoration: none;
     color: #3758f9;

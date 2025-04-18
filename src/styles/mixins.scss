@@ -1,0 +1,9 @@
+@mixin title_limit($rows: 2, $maxWidth: 100%) {
+  max-width: $maxWidth;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box !important;
+  -webkit-line-clamp: $rows;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+}
