@@ -13,9 +13,6 @@ const AuthFormModal = () => {
 	const [btnLoad, setBtnLoad] = useState(false);
 	const lastSegment = getLastDomainSegment()
 
-	const currentDomain = window.location.hostname;
-	const isLocalhost = currentDomain === 'localhost' || currentDomain.startsWith('127.') || currentDomain === '::1';
-
 	const formSubmit = async () => {
 
 		setBtnLoad(true)
@@ -29,7 +26,7 @@ const AuthFormModal = () => {
 			const response = await api.authApi.loginUser(body);
 
 			if(response.status === true){
-				window.location.href = `${lastSegment === 'd' ? 'http' : 'https'}://cabinet.${isLocalhost ? 'apicore.d' : currentDomain}/`;
+				window.location.href = `${lastSegment === 'd' ? 'http' : 'https'}://cabinet.apicore.kz/`;
 			}else{
 				Toast(response.message, 'error');
 			}
