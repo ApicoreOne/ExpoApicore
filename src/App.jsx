@@ -12,6 +12,7 @@ import Cookies from "js-cookie";
 import CheckAuth from "@/components/CheckAuth/CheckAuth.jsx";
 import {Toaster} from "react-hot-toast";
 import {TOAST_CONFIG} from "@/utils/config.js";
+import MultiPopup from "@/components/MultiPopup/MultiPopup.jsx";
 
 function App() {
 
@@ -53,6 +54,7 @@ function App() {
       <CheckAuth>
         <Toaster toastOptions={TOAST_CONFIG}/>
         <MultiModal />
+        <MultiPopup />
         <Overlay />
         <Header />
         <Banner />

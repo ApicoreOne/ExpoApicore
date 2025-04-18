@@ -25,3 +25,118 @@ body{
   font-family: Montserrat, sans-serif;
   overflow-x: hidden;
 }
+
+* {
+  &::-webkit-scrollbar {
+    background-color: #fff; /* Цвет бегунка */
+    border-radius: 30px; /* Округление бегунка */
+    width: 2px;
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #767676;
+    border-radius: 30px;
+  }
+}
+
+//============================MULTIPOPUP
+
+.i_multi_popup {
+  position: fixed;
+  z-index: 50;
+  width: 360px;
+  background-color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+
+  &.large {
+    width: 600px;
+    height: 230px;
+  }
+
+  .i_container {
+    padding: 20px 30px;
+    position: relative;
+    height: 100%;
+    box-shadow: 0 0 8px 0 rgba(34, 60, 80, 0.2);
+    border-radius: 15px;
+
+    .i_multi_popup-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100%;
+      border: 1px solid #ededed;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+//======================POPUP ITEMS
+
+//DELETE DISTRIBUTOR CATALOG POPUP
+
+.i_delete-distributor-catalog-popup {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  .i_popup-title {
+    padding-right: 35px;
+  }
+
+  .i_popup-buttons {
+    display: flex;
+    margin-top: 25px;
+    justify-content: space-between;
+
+    .i_popup-button-success,
+    .i_popup-button-cancel {
+      width: 47%;
+
+      button {
+        height: 44px;
+        width: 100%;
+        padding: 0 13px;
+        border-radius: 30px;
+        outline: none;
+        cursor: pointer;
+      }
+    }
+
+    .i_popup-button-success {
+      button {
+        border: 2px solid #eee;
+        color: #000;
+        background-color: white;
+      }
+    }
+
+    .i_popup-button-cancel {
+      button {
+        color: white;
+        background-color: red;
+        border: 2px solid red;
+      }
+    }
+  }
+}
+
+.hide{
+  opacity: 0;
+  visibility: hidden;
+}

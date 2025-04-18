@@ -10,6 +10,7 @@ import ProductDetailModal from "@/modal/ProductDetailModal.jsx";
 import CategoryListMobileModal from "@/modal/CategoryListMobileModal.jsx";
 import FavoriteProductListModal from "@/modal/FavoriteProductListModal.jsx";
 import AuthFormModal from "@/modal/AuthFormModal/AuthFormModal.jsx";
+import ExponentMeetModal from "@/modal/ExponentMeetModal/ExponentMeetModal.jsx";
 
 const MultiModal = () => {
 
@@ -61,6 +62,7 @@ const MultiModal = () => {
 						{modal.modalType === 'categoryListMobileModal' && <CategoryListMobileModal />}
 						{modal.modalType === 'favoriteProductListModal' && <FavoriteProductListModal />}
 						{modal.modalType === 'authFormModal' && <AuthFormModal />}
+						{modal.modalType === 'exponentMeetModal' && <ExponentMeetModal />}
 					</div>
 				</div>
 			)

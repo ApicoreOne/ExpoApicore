@@ -4,6 +4,8 @@ import ExponentShowCatalog from "@/utils/ui/ExponentShowCatalog/ExponentShowCata
 import ShowFavorite from "@/utils/ui/ShowFavorite/ShowFavorite.jsx";
 import CustomInput from "@/utils/ui/CustomInput/CustomInput.jsx";
 import PasswordInput from "@/utils/ui/PasswordInput/PasswordInput.jsx";
+import ExponentMeet from "@/utils/ui/ExponentMeet/ExponentMeet.jsx";
+import ScrollBox from "@/utils/ui/ScrollBox/ScrollBox.jsx";
 
 export {
 	ExponentItem,
@@ -11,5 +13,7 @@ export {
 	ExponentShowCatalog,
 	ShowFavorite,
 	CustomInput,
-	PasswordInput
+	PasswordInput,
+	ExponentMeet,
+	ScrollBox
 }

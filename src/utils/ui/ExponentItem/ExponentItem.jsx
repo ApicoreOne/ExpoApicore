@@ -4,7 +4,7 @@ import InstagramLogo from '@/images/social/instagram.svg?react';
 import TelegramLogo from '@/images/social/telegram.svg?react';
 import WhatsappLogo from '@/images/social/whatsapp.svg?react';
 import YoutubeLogo from '@/images/social/youtube.svg?react';
-import {ExponentQrCode, ExponentShowCatalog} from "@/utils/ui/";
+import {ExponentMeet, ExponentQrCode, ExponentShowCatalog} from "@/utils/ui/";
 
 const ExponentItem = ({item}) => {
 
@@ -72,6 +72,7 @@ const ExponentItem = ({item}) => {
 				}
 			</div>
 
+			<ExponentMeet item={item}/>
 		</div>
 	)
 }

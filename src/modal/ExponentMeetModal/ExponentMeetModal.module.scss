@@ -1,0 +1,62 @@
+.modal{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  height: 100%;
+
+  .modalTitle {
+    font-size: 1.125rem;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .modalContent{
+    width: 100%;
+    margin-top: 10px;
+    height: 100%;
+    .modalContentDate{
+      text-align: center;
+    }
+  }
+
+  .modalContentDateItems{
+    margin-top: 10px;
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    padding: 10px;
+    width: 100%;
+    .modalContentDateItem{
+      min-width: 40px;
+      min-height: 40px;
+      width: 40px;
+      height: 40px;
+      border-radius: 100%;
+      border: 1px solid #ccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      background: #fff;
+
+      &.active{
+        background: #6c6cc7;
+        color: white;
+        border: 0;
+      }
+
+      transition: all .4s ease;
+
+      &:hover{
+        background: #6c6cc7;
+        color: white;
+        border: 0;
+      }
+    }
+  }
+
+  .modalContentExponentMeet{
+    margin-top: 20px;
+  }
+}
