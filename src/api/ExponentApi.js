@@ -20,5 +20,17 @@ export class ExponentApi{
 		return multiFetch(`${API_URL}/site/expo.catalog.product.list`, body)
 	}
 
+	getFavoriteList(body){
+		return multiFetch(`${API_URL}/site/expo.favorites.product.list`, body)
+	}
+
+	getCatalogProductDetail(body){
+		return multiFetch(`${API_URL}/site/expo.catalog.product.detail`, body)
+	}
+
+	getCompanyList(body){
+		return multiFetch(`${API_URL}/site/expo.company.list`, body)
+	}
+
 }
 

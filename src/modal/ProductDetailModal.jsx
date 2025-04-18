@@ -59,10 +59,8 @@ const ProductDetailModal = () => {
 
 	const getData = async () => {
 		try {
-			const productDetail = await api.texpoApi.getCatalogProductDetail({id: productId});
+			const productDetail = await api.exponentApi.getCatalogProductDetail({id: productId});
 			setProductDetail(productDetail.product)
-
-			console.log(productDetail)
 
 			// Ставлю искуственную задержку чтобы не лагала модалка при открытии
 			setTimeout(() => {

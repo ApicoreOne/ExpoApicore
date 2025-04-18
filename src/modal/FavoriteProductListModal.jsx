@@ -8,10 +8,9 @@ const FavoriteProductListModal = () => {
 	const favoriteProductStore = useSelector(state => state.favorite.favoriteList)
 	const [productListState, setProductListState] = useState([])
 	const [isLoading, setIsLoading] = useState(true)
-	const dispatch = useDispatch();
 
 	const getData = async () => {
-		const response = await api.texpoApi.getFavoriteList({id: favoriteProductStore})
+		const response = await api.exponentApi.getFavoriteList({id: favoriteProductStore})
 		setProductListState(response.products)
 		setIsLoading(false)
 	}

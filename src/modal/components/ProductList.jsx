@@ -53,7 +53,7 @@ const ProductList = ({productList, hideProductCard}) => {
 	//Функция для подгрузки товаров
 	const loadMore = async () => {
 		try {
-			const productList = await api.texpoApi.getCatalogProductList({hash: catalogHash});
+			const productList = await api.exponentApi.getCatalogProductList({hash: catalogHash});
 
 			dispatch({
 				type: "GET_MORE_PRODUCT_LIST",
