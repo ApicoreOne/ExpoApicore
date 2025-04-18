@@ -45,7 +45,7 @@ const ExponentItem = ({item}) => {
 
 			<div className={styles.exponentType}>
 				<span>{item.contact}</span>
-				<a href={`tel:+${item.phone}`}>{item.phone}</a>
+				{/*<a href={`tel:+${item.phone}`}>{item.phone}</a>*/}
 			</div>
 
 			<div className={styles.exponentSocials}>
