@@ -187,7 +187,7 @@ const ProductDetailModal = () => {
 													{productDetail.props.props.length > 5 && (
 														<div className={`i_show-more ${showMore ? 'show' : ''}`} onClick={showMoreProps}>
 															<div className="i_show-more-img">
-																<img src={closeBtn} alt=""/>
+																<img src={`${closeBtn}`} alt=""/>
 															</div>
 														</div>
 													)}
@@ -198,7 +198,7 @@ const ProductDetailModal = () => {
 												<TabPanel value="props" className={'i_tap-panel'}>
 													<div className="i_product-props-empty">
 														<div className="i_product-props-empty-title">
-															<img src={infoImg} alt=""/>
+															<img src={`${infoImg}`} alt=""/>
 															<span>Свойства отсутствуют.</span>
 														</div>
 													</div>
