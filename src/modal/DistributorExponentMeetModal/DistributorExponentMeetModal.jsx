@@ -12,7 +12,7 @@ const DistributorExponentMeetModal = () => {
 	const [currentDate, setCurrentDate] = useState('20.04.2025')
 	const ExpoIDUser = Cookies.get('expo_user_id');
 	const authorized = useSelector(state => state.userData.authorization);
-	const authID = useSelector(state => state.userData.entity);
+	const authEntity = useSelector(state => state.userData.entity);
 
 	const modalDate = [
 		{name: 20, value: '20.04.2025'},
@@ -28,7 +28,7 @@ const DistributorExponentMeetModal = () => {
 			let response = null;
 
 			if(authorized){
-				response = await api.exponentApi.getExpoMeetingDistributorList({date: currentDate, exponent_id: authID})
+				response = await api.exponentApi.getExpoMeetingDistributorList({date: currentDate, exponent_id: authEntity.id})
 			}else{
 				response = await api.exponentApi.getExpoMeetingClientList({client_id: ExpoIDUser , date: currentDate})
 			}
