@@ -18,7 +18,7 @@ import DetailPrice from "./components/ProductDetail/DetailPrice";
 
 import Cookies from "js-cookie";
 
-import closeBtn from '../images/burger-language-arrow.svg?react';
+import closeBtn from '../images/burger-language-arrow.svg';
 import infoImg from "../images/info.svg";
 import StarLined from '../images/texpo/star-lined.svg?react'
 import StarFilled from '../images/texpo/star-filled.svg?react'
@@ -183,7 +183,7 @@ const ProductDetailModal = () => {
 													             itemShowCount={itemShowCount}/>
 
 
-													{/*Показываем блок раскрытия тадлицы свойств*/}
+													{/*Показываем блок раскрытия таблицы свойств*/}
 													{productDetail.props.props.length > 5 && (
 														<div className={`i_show-more ${showMore ? 'show' : ''}`} onClick={showMoreProps}>
 															<div className="i_show-more-img">

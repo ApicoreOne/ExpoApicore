@@ -5,8 +5,11 @@ import TelegramLogo from '@/images/social/telegram.svg?react';
 import WhatsappLogo from '@/images/social/whatsapp.svg?react';
 import YoutubeLogo from '@/images/social/youtube.svg?react';
 import {ExponentMeet, ExponentQrCode, ExponentShowCatalog} from "@/utils/ui/";
+import Cookies from "js-cookie";
 
 const ExponentItem = ({item}) => {
+
+	const expoUserId = Cookies.get('expo_user_id')
 
 	const socials = [
 		{
@@ -72,7 +75,9 @@ const ExponentItem = ({item}) => {
 				}
 			</div>
 
-			<ExponentMeet item={item}/>
+			{
+				expoUserId && <ExponentMeet item={item}/>
+			}
 		</div>
 	)
 }

@@ -10,7 +10,7 @@ const FavoriteProductListModal = () => {
 	const [isLoading, setIsLoading] = useState(true)
 
 	const getData = async () => {
-		const response = await api.exponentApi.getFavoriteList({id: favoriteProductStore})
+		const response = await api.exponentApi.getFavoriteList({id: favoriteProductStore, expo: 'texpo4'})
 		setProductListState(response.products)
 		setIsLoading(false)
 	}
