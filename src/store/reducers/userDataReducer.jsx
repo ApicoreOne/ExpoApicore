@@ -11,12 +11,12 @@ export const userDataReducer = (state = initialState, action) => {
 				authorization : action.authorization
 			};
 
-		case "SET_USER_ENTITY":{
+		case "SET_USER_ENTITY":
 			return {
 				...state,
 				entity : action.entity
 			};
-		}
+
 		default:
 			return state;
 	}
