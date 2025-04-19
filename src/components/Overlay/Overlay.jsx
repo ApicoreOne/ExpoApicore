@@ -14,7 +14,7 @@ const Overlay = () =>{
 	const changeShowOverlay = (lvl) =>{
 		dispatch({type: "CLOSE_MODAL", modalLevel: lvl})
 		dispatch({type: "SWITCH_POPUP", popupType: null, popupIsOpen: false, currentCatalogItem: null, popupData: null})
-
+		dispatch({type: "CLEAR_EXPONENT_MEETING"})
 
 		if(lvl === 1){
 			removeParam('catalog')

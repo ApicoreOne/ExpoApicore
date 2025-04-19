@@ -5,10 +5,13 @@ import {ExponentItem, ShowFavorite} from "@/utils/ui/index.js";
 import {useDispatch, useSelector} from "react-redux";
 import {useURLParamWatcher} from "@/hooks/index";
 import Cookies from 'js-cookie';
+import ShowDistributorExponentMeet from "@/utils/ui/ShowDistributorExponentMeet/ShowDistributorExponentMeet.jsx";
 
 const Exponent = () => {
 	const dispatch = useDispatch();
 	const exponentList = useSelector(state => state.exponent.exponentList)
+	const authorized = useSelector(state => state.userData.authorization);
+	const ExpoIDUser = Cookies.get('expo_user_id');
 
 	const getData = async () => {
 		try{
@@ -16,6 +19,10 @@ const Exponent = () => {
 
 			if(response.status === true){
 				dispatch({type: "SET_EXPONENT_LIST", exponentList: response.exponents})
+
+				if(response?.entity?.length > 0) {
+					dispatch({type: "SET_USER_ENTITY", entity: response.entity})
+				}
 			}
 
 		}catch (e) {
@@ -52,7 +59,11 @@ const Exponent = () => {
 					<span>Экспоненты</span>
 				</div>
 
-				<ShowFavorite />
+				<div className={styles.exponentHeadActions}>
+					{authorized || ExpoIDUser && <ShowDistributorExponentMeet />}
+					{/*<ShowDistributorExponentMeet />*/}
+					<ShowFavorite />
+				</div>
 			</div>
 
 

@@ -40,5 +40,13 @@ export class ExponentApi{
 		return multiFetch(`${API_URL}/site/expo.meeting.list`, body)
 	}
 
+	getExpoMeetingClientList(body){
+		return multiFetch(`${API_URL}/site/expo.meeting.client.list`, body)
+	}
+
+	getExpoMeetingDistributorList(body){
+		return multiFetch(`${API_URL}/site/expo.meeting.distributor.list`, body)
+	}
+
 }
 

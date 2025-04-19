@@ -38,6 +38,7 @@ function App() {
       if (openModal) {
 
         dispatch({ type: "CLOSE_MODAL", modalLevel: openModal.modalLevel });
+        dispatch({type: "CLEAR_EXPONENT_MEETING"})
 
         if(openModal.modalLevel === 1){
           removeParam('catalog')

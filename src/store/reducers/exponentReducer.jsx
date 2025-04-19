@@ -46,6 +46,17 @@ export const exponentReducer = (state = initialState, action = {}) => {
 			}
 		}
 
+		case 'CLEAR_EXPONENT_MEETING': {
+			return {
+				...state,
+				exponentMeeting: {
+					exponentMeetingDateList: [],
+					exponentMeetingSlotList : [],
+					currentExponentMeetingDate: null
+				}
+			}
+		}
+
 		default:
 			return state;
 	}

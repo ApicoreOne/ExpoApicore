@@ -12,6 +12,7 @@ import FavoriteProductListModal from "@/modal/FavoriteProductListModal.jsx";
 import AuthFormModal from "@/modal/AuthFormModal/AuthFormModal.jsx";
 import ExponentMeetModal from "@/modal/ExponentMeetModal/ExponentMeetModal.jsx";
 import {useUrlParams} from "@/hooks/index.js";
+import DistributorExponentMeetModal from "@/modal/DistributorExponentMeetModal/DistributorExponentMeetModal.jsx";
 
 const MultiModal = () => {
 
@@ -22,6 +23,7 @@ const MultiModal = () => {
 
 	const closeModal = (modalLevel) =>{
 		dispatch({type: "CLOSE_MODAL", modalLevel: modalLevel})
+		dispatch({type: "CLEAR_EXPONENT_MEETING"})
 
 		if(modalLevel === 1){
 			removeParam('catalog')
@@ -70,6 +72,7 @@ const MultiModal = () => {
 						{modal.modalType === 'favoriteProductListModal' && <FavoriteProductListModal />}
 						{modal.modalType === 'authFormModal' && <AuthFormModal />}
 						{modal.modalType === 'exponentMeetModal' && <ExponentMeetModal />}
+						{modal.modalType === 'distributorExponentMeetModal' && <DistributorExponentMeetModal />}
 					</div>
 				</div>
 			)

@@ -10,9 +10,6 @@
 .exponentTitle {
   font-size: 2rem;
   font-weight: bold;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .exponentItems{
@@ -30,7 +27,7 @@
 .exponentHead{
   display: flex;
   position: relative;
-  justify-content: end;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
   @media screen and (max-width: 1024px) {
@@ -38,4 +35,9 @@
     align-items: end;
     gap: 10px;
   }
+}
+
+.exponentHeadActions{
+  display: flex;
+  gap: 40px;
 }

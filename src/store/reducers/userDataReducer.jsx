@@ -1,5 +1,6 @@
 const initialState = {
-	authorization : null
+	authorization : null,
+	entity: {}
 }
 
 export const userDataReducer = (state = initialState, action) => {
@@ -9,6 +10,13 @@ export const userDataReducer = (state = initialState, action) => {
 				...state,
 				authorization : action.authorization
 			};
+
+		case "SET_USER_ENTITY":{
+			return {
+				...state,
+				entity : action.entity
+			};
+		}
 		default:
 			return state;
 	}
