@@ -62,7 +62,7 @@ const Exponent = () => {
 				</div>
 
 				<div className={styles.exponentHeadActions}>
-					{authorized === true || ExpoIDUser && <ShowDistributorExponentMeet />}
+					{(authorized === true || ExpoIDUser) && <ShowDistributorExponentMeet />}
 					{/*<ShowDistributorExponentMeet />*/}
 					<ShowFavorite />
 				</div>
