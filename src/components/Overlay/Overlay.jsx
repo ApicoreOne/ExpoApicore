@@ -13,7 +13,7 @@ const Overlay = () =>{
 
 	const changeShowOverlay = (lvl) =>{
 		dispatch({type: "CLOSE_MODAL", modalLevel: lvl})
-		dispatch({type: "SWITCH_POPUP", popupType: null, popupIsOpen: false, currentCatalogItem: null})
+		dispatch({type: "SWITCH_POPUP", popupType: null, popupIsOpen: false, currentCatalogItem: null, popupData: null})
 
 
 		if(lvl === 1){

@@ -5,6 +5,7 @@ const initialState = {
 	currentPriceTypeItem : null,
 	popupLarge : false,
 	currentItem : null,
+	popupData: null
 }
 
 export const popupReducer = (state = initialState, action) => {
@@ -17,7 +18,8 @@ export const popupReducer = (state = initialState, action) => {
 				currentCatalogItem: action.currentCatalogItem,
 				currentPriceTypeItem: action.currentPriceTypeItem,
 				popupLarge: action.popupLarge,
-				currentItem: action.currentItem
+				currentItem: action.currentItem,
+				popupData: action.popupData
 			}
 		default:
 			return state;

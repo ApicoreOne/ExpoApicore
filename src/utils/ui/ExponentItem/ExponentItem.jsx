@@ -6,10 +6,12 @@ import WhatsappLogo from '@/images/social/whatsapp.svg?react';
 import YoutubeLogo from '@/images/social/youtube.svg?react';
 import {ExponentMeet, ExponentQrCode, ExponentShowCatalog} from "@/utils/ui/";
 import Cookies from "js-cookie";
+import {useSelector} from "react-redux";
 
 const ExponentItem = ({item}) => {
 
 	const expoUserId = Cookies.get('expo_user_id')
+	const authorized = useSelector(state => state.userData.authorization);
 
 	const socials = [
 		{
@@ -76,7 +78,7 @@ const ExponentItem = ({item}) => {
 			</div>
 
 			{
-				expoUserId && <ExponentMeet item={item}/>
+				expoUserId && authorized !== false && <ExponentMeet item={item}/>
 			}
 		</div>
 	)

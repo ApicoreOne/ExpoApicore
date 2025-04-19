@@ -17,3 +17,12 @@
     background-color: #f8f8f8;
   }
 }
+
+.exponentMeetItemValue{
+  &.free{
+    color: #4CAF50;
+  }
+  &.busy{
+    color: #f44336;
+  }
+}

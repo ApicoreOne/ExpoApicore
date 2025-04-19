@@ -12,7 +12,7 @@ const MultiPopup = () => {
 
 
 	const closeModal = () =>{
-		dispatch({type: "SWITCH_POPUP", popupType: null, popupIsOpen: false})
+		dispatch({type: "SWITCH_POPUP", popupType: null, popupIsOpen: false, popupData: null})
 	}
 
 	return(
