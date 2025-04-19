@@ -14,8 +14,6 @@ const DistributorExponentMeetModal = () => {
 	const authorized = useSelector(state => state.userData.authorization);
 	const authEntity = useSelector(state => state.userData.entity);
 
-	console.log(authEntity)
-
 	const modalDate = [
 		{name: 20, value: '20.04.2025'},
 		{name: 21, value: '21.04.2025'},
@@ -28,8 +26,6 @@ const DistributorExponentMeetModal = () => {
 	const getData = async () => {
 		try{
 			let response = null;
-
-			console.log(authEntity)
 
 			if(authorized){
 				response = await api.exponentApi.getExpoMeetingDistributorList({date: currentDate, exponent_id: authEntity.id})

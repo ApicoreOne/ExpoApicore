@@ -19,10 +19,7 @@ const Exponent = () => {
 
 			if(response.status === true){
 				dispatch({type: "SET_EXPONENT_LIST", exponentList: response.exponents})
-
-				if(authorized === true){
-					dispatch({type: "SET_USER_ENTITY", entity: response.entity})
-				}
+				dispatch({type: "SET_USER_ENTITY", entity: response.entity})
 			}
 
 		}catch (e) {
