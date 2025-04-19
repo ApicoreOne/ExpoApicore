@@ -1,6 +1,6 @@
 const initialState = {
 	authorization : null,
-	entity: {}
+	entity: null
 }
 
 export const userDataReducer = (state = initialState, action) => {

@@ -7,7 +7,6 @@ const ShowDistributorExponentMeet = () => {
 
 	const openModal = () => {
 		dispatch({type: "OPEN_MODAL", modalType: 'distributorExponentMeetModal', modalLevel: 1})
-		console.log('openModal')
 	}
 
 	return(
