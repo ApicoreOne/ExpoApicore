@@ -13,6 +13,8 @@ const Exponent = () => {
 	const authorized = useSelector(state => state.userData.authorization);
 	const ExpoIDUser = Cookies.get('expo_user_id');
 
+	console.log(authorized)
+
 	const getData = async () => {
 		try{
 			const response = await api.exponentApi.getExponentsList({code: 'texpo4'})

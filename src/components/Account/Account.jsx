@@ -15,7 +15,7 @@ const Account = () => {
 				authorized
 					?
 					<div className={styles.headerAccount}>
-						<a href={`${lastSegment === 'd' ? 'http' : 'https'}://cabinet.apicore.one`}
+						<a href={`${lastSegment === 'd' ? 'http' : 'https'}://cabinet.apicore.kz`}
 						   className={styles.cabinetButton}>
 							<AvatarSvg/>
 							<span>Кабинет</span>
