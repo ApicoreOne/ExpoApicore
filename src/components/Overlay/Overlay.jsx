@@ -1,5 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
 import styles from './Overlay.module.scss';
+import {useUrlParams} from "@/hooks/index.js";
 
 const Overlay = () =>{
 	const dispatch = useDispatch();
@@ -8,9 +9,16 @@ const Overlay = () =>{
 	const modalIsOpenLevel3 = useSelector(state => state.multiModal.modals[2].modalIsOpen);
 	const popupIsOpen = useSelector(state => state.multiPopup.popupIsOpen);
 
+	const { removeParam } = useUrlParams();
+
 	const changeShowOverlay = (lvl) =>{
 		dispatch({type: "CLOSE_MODAL", modalLevel: lvl})
 		dispatch({type: "SWITCH_POPUP", popupType: null, popupIsOpen: false, currentCatalogItem: null})
+
+
+		if(lvl === 1){
+			removeParam('catalog')
+		}
 	}
 
 	return(

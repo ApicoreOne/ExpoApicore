@@ -11,14 +11,21 @@ import CategoryListMobileModal from "@/modal/CategoryListMobileModal.jsx";
 import FavoriteProductListModal from "@/modal/FavoriteProductListModal.jsx";
 import AuthFormModal from "@/modal/AuthFormModal/AuthFormModal.jsx";
 import ExponentMeetModal from "@/modal/ExponentMeetModal/ExponentMeetModal.jsx";
+import {useUrlParams} from "@/hooks/index.js";
 
 const MultiModal = () => {
 
 	const dispatch = useDispatch();
 	const modals = useSelector(state => state.multiModal.modals);
 
+	const { removeParam } = useUrlParams();
+
 	const closeModal = (modalLevel) =>{
 		dispatch({type: "CLOSE_MODAL", modalLevel: modalLevel})
+
+		if(modalLevel === 1){
+			removeParam('catalog')
+		}
 	}
 	// Локаем страницу и делаем так чтобы он не прыгал
 	useEffect(() => {

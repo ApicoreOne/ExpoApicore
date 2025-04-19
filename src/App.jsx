@@ -13,6 +13,7 @@ import CheckAuth from "@/components/CheckAuth/CheckAuth.jsx";
 import {Toaster} from "react-hot-toast";
 import {TOAST_CONFIG} from "@/utils/config.js";
 import MultiPopup from "@/components/MultiPopup/MultiPopup.jsx";
+import {useUrlParams} from "@/hooks/index.js";
 
 function App() {
 
@@ -23,6 +24,8 @@ function App() {
     const favoriteProductCookies = Cookies.get('favoriteProduct') ? JSON.parse(Cookies.get('favoriteProduct')) : []
     dispatch({type: "SET_FAVORITE_LIST", favoriteList: favoriteProductCookies})
   },[])
+
+  const { removeParam } = useUrlParams();
 
   // Закрытие модального окна по нажатию на Escape
   const handleKeyDown = (event) => {
@@ -35,6 +38,10 @@ function App() {
       if (openModal) {
 
         dispatch({ type: "CLOSE_MODAL", modalLevel: openModal.modalLevel });
+
+        if(openModal.modalLevel === 1){
+          removeParam('catalog')
+        }
       }
 
       dispatch({type: "SWITCH_POPUP", popupType: null, popupIsOpen: false, currentCatalogItem: null})
