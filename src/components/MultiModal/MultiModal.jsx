@@ -11,13 +11,17 @@ import CategoryListMobileModal from "@/modal/CategoryListMobileModal.jsx";
 import FavoriteProductListModal from "@/modal/FavoriteProductListModal.jsx";
 import AuthFormModal from "@/modal/AuthFormModal/AuthFormModal.jsx";
 import ExponentMeetModal from "@/modal/ExponentMeetModal/ExponentMeetModal.jsx";
-import {useUrlParams} from "@/hooks/index.js";
+import {useUrlParams, useViewportHeight, useWindowWidth} from "@/hooks/index.js";
 import DistributorExponentMeetModal from "@/modal/DistributorExponentMeetModal/DistributorExponentMeetModal.jsx";
 
 const MultiModal = () => {
 
 	const dispatch = useDispatch();
 	const modals = useSelector(state => state.multiModal.modals);
+
+	const viewportHeight = useViewportHeight();
+	const windowWidth = useWindowWidth();
+
 
 	const { removeParam } = useUrlParams();
 
@@ -55,6 +59,7 @@ const MultiModal = () => {
 				<div
 					className={`${styles.multiModal} ${!modal.modalIsOpen ? styles.hide : ''} ${modal.modalWidth ? styles[modal.modalWidth] : ''} ${styles[`modalLevel${modal.modalLevel}`]}`}
 					key={index}
+					style={{height: viewportHeight}}
 				>
 					<div className={styles.container}>
 						<div className={styles.closeButton} onClick={() => {
