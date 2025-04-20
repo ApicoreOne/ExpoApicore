@@ -15,7 +15,6 @@ const DistributorExponentMeetModal = () => {
 	const authEntity = useSelector(state => state.userData.entity);
 
 	const modalDate = [
-		{name: 20, value: '20.04.2025'},
 		{name: 21, value: '21.04.2025'},
 		{name: 22, value: '22.04.2025'},
 		{name: 23, value: '23.04.2025'},
