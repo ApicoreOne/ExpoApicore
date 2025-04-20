@@ -18,6 +18,7 @@ const AddExponentMeetPopup = () => {
 				exponent_id: item.id,
 				client_id: expoUserId,
 				date: currentExponentMeetingDate,
+				expo: 'texpo4'
 			}
 
 			const response = await api.exponentApi.addExpoMeeting(body)
