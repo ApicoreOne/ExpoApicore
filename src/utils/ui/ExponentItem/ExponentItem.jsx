@@ -12,6 +12,7 @@ const ExponentItem = ({item}) => {
 
 	const expoUserId = Cookies.get('expo_user_id')
 	const authorized = useSelector(state => state.userData.authorization);
+	const ExpoIDUser = Cookies.get('expo_user_id');
 
 	const socials = [
 		{
@@ -48,7 +49,7 @@ const ExponentItem = ({item}) => {
 
 			<div className={styles.exponentType}>
 				<span>{item.contact}</span>
-				{/*<a href={`tel:+${item.phone}`}>{item.phone}</a>*/}
+				{(ExpoIDUser || authorized) && <a href={`tel:+${item.phone}`}>{item.phone}</a>}
 			</div>
 
 			<div className={styles.exponentSocials}>
