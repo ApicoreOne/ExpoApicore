@@ -22,7 +22,6 @@ import closeBtn from '../images/burger-language-arrow.svg';
 import infoImg from "../images/info.svg";
 import StarLined from '../images/texpo/star-lined.svg?react'
 import StarFilled from '../images/texpo/star-filled.svg?react'
-import {ReactSVG} from "react-svg";
 
 
 const ProductDetailModal = () => {
@@ -128,8 +127,9 @@ const ProductDetailModal = () => {
 								)}
 								{
 									productDetail.images?.noimage && (
-										<ReactSVG src={productDetail.images.noimage}
-										          className={'i_product-detail-noimage'}/>
+										<div className={'i_product-detail-noimage'}>
+											<img src={productDetail.images.noimage} alt={'noimg'}/>
+										</div>
 									)
 								}
 							</div>
