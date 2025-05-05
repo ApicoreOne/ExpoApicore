@@ -30,7 +30,7 @@ const Header = () => {
 					</div>
 				</div>
 				<div className={styles.headerLogoExpo}>
-					<TexpoLogo />
+					{/*<TexpoLogo />*/}
 				</div>
 				<div className={styles.headerAccount}>
 					<Account/>

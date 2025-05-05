@@ -14,6 +14,10 @@ import {Toaster} from "react-hot-toast";
 import {TOAST_CONFIG} from "@/utils/config.js";
 import MultiPopup from "@/components/MultiPopup/MultiPopup.jsx";
 import {useUrlParams} from "@/hooks/index.js";
+import {Route, Routes} from "react-router-dom";
+import Layout from "@/components/Layout/Layout.jsx";
+import MainPage from "@/pages/MainPage/MainPage.jsx";
+import Texpo4 from "@/pages/Texpo4/Texpo4.jsx";
 
 function App() {
 
@@ -59,15 +63,12 @@ function App() {
 
   return (
     <div className={'apicore-expo'}>
-      <CheckAuth>
-        <Toaster toastOptions={TOAST_CONFIG}/>
-        <MultiModal />
-        <MultiPopup />
-        <Overlay />
-        <Header />
-        <Banner />
-        <Exponent />
-      </CheckAuth>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<MainPage />} />
+          <Route path='/texpo4/' element={<Texpo4 />} />
+        </Route>
+      </Routes>
     </div>
   )
 }
