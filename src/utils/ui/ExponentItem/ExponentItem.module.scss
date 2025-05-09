@@ -1,6 +1,7 @@
 @import "@/styles/mixins";
 
 .exponentItem {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -102,7 +103,6 @@
   flex-direction: column;
   width: 100%;
   max-width: 250px;
-  min-height: 95px;
 }
 
 .exponentMeet{

@@ -8,16 +8,17 @@ const FavoriteProductListModal = () => {
 	const favoriteProductStore = useSelector(state => state.favorite.favoriteList)
 	const [productListState, setProductListState] = useState([])
 	const [isLoading, setIsLoading] = useState(true)
+	const currentExponentCode = useSelector(state => state.exponent.currentExponentCode)
 
 	const getData = async () => {
-		const response = await api.exponentApi.getFavoriteList({id: favoriteProductStore, expo: 'texpo4'})
+		const response = await api.exponentApi.getFavoriteList({id: favoriteProductStore, expo: currentExponentCode})
 		setProductListState(response.products)
 		setIsLoading(false)
 	}
 
 	useEffect(() => {
 		getData()
-	}, [favoriteProductStore]);
+	}, [favoriteProductStore, currentExponentCode]);
 
 
 	return (

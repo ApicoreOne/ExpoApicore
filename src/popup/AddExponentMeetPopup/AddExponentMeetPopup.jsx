@@ -9,6 +9,7 @@ const AddExponentMeetPopup = () => {
 	const popupData = useSelector(state => state.multiPopup.popupData)
 	const expoUserId = Cookies.get('expo_user_id')
 	const currentExponentMeetingDate = useSelector(state => state.exponent.exponentMeeting.currentExponentMeetingDate)
+	const currentExponentCode = useSelector(state => state.exponent.currentExponentCode)
 
 	const formSubmit = async () => {
 		try{
@@ -18,7 +19,7 @@ const AddExponentMeetPopup = () => {
 				exponent_id: item.id,
 				client_id: expoUserId,
 				date: currentExponentMeetingDate,
-				expo: 'texpo4'
+				expo: currentExponentCode
 			}
 
 			const response = await api.exponentApi.addExpoMeeting(body)

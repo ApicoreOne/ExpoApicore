@@ -1,23 +1,14 @@
 import {useDispatch, useSelector} from "react-redux";
-import Header from "@/components/Header/Header.jsx";
 import './styles/general.scss'
 import './styles/normalize.css'
 import '@/styles/Modal.scss'
-import Banner from "@/components/Banner/Banner.jsx";
-import Exponent from "@/components/Exponent/Exponent.jsx";
-import MultiModal from "@/components/MultiModal/MultiModal.jsx";
-import Overlay from "@/components/Overlay/Overlay.jsx";
 import {useEffect} from "react";
 import Cookies from "js-cookie";
-import CheckAuth from "@/components/CheckAuth/CheckAuth.jsx";
-import {Toaster} from "react-hot-toast";
-import {TOAST_CONFIG} from "@/utils/config.js";
-import MultiPopup from "@/components/MultiPopup/MultiPopup.jsx";
 import {useUrlParams} from "@/hooks/index.js";
 import {Route, Routes} from "react-router-dom";
 import Layout from "@/components/Layout/Layout.jsx";
 import MainPage from "@/pages/MainPage/MainPage.jsx";
-import Texpo4 from "@/pages/Texpo4/Texpo4.jsx";
+import ExponentPage from "@/pages/ExponentPage/[expoID].jsx";
 
 function App() {
 
@@ -66,7 +57,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<MainPage />} />
-          <Route path='/texpo4/' element={<Texpo4 />} />
+          <Route path='/:expoID' element={<ExponentPage />} />
         </Route>
       </Routes>
     </div>

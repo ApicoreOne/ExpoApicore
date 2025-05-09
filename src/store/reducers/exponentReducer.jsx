@@ -4,7 +4,9 @@ const initialState = {
 		exponentMeetingDateList: [],
 		exponentMeetingSlotList : [],
 		currentExponentMeetingDate: null
-	}
+	},
+	currentExponentCode: null,
+	exponentData: null
 }
 
 export const exponentReducer = (state = initialState, action = {}) => {
@@ -54,6 +56,20 @@ export const exponentReducer = (state = initialState, action = {}) => {
 					exponentMeetingSlotList : [],
 					currentExponentMeetingDate: null
 				}
+			}
+		}
+
+		case 'SET_CURRENT_EXPONENT_CODE': {
+			return {
+				...state,
+				currentExponentCode: action.currentExponentCode
+			}
+		}
+
+		case 'SET_EXPONENT_DATA': {
+			return {
+				...state,
+				exponentData: action.exponentData
 			}
 		}
 

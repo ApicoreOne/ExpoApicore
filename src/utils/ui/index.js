@@ -6,6 +6,7 @@ import CustomInput from "@/utils/ui/CustomInput/CustomInput.jsx";
 import PasswordInput from "@/utils/ui/PasswordInput/PasswordInput.jsx";
 import ExponentMeet from "@/utils/ui/ExponentMeet/ExponentMeet.jsx";
 import ScrollBox from "@/utils/ui/ScrollBox/ScrollBox.jsx";
+import Wrapper from "@/utils/ui/Wrapper/Wrapper.jsx";
 
 export {
 	ExponentItem,
@@ -15,5 +16,6 @@ export {
 	CustomInput,
 	PasswordInput,
 	ExponentMeet,
-	ScrollBox
+	ScrollBox,
+	Wrapper
 }

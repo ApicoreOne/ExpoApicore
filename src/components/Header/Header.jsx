@@ -1,40 +1,44 @@
-import {useEffect, useState} from 'react';
 import styles from './Header.module.scss';
 import Logo from '@/images/ApicoreExpo.svg?react';
 import LogoMobile from '@/images/logo_circle.svg?react';
 import Account from "@/components/Account/Account.jsx";
-import TexpoLogo from "@/images/TexpoBanner.svg?react";
+import {Wrapper} from "@/utils/ui/index.js";
+import {useSelector} from "react-redux";
+import {ReactSVG} from "react-svg";
 
 const Header = () => {
-	const [isSticky, setIsSticky] = useState(false);
 
-	useEffect(() => {
-		const handleScroll = () => {
-			setIsSticky(window.scrollY > 50); // меняем состояние при скролле вниз
-		};
-
-		window.addEventListener('scroll', handleScroll, {passive: true});
-
-		return () => window.removeEventListener('scroll', handleScroll);
-	}, []);
+	const expoData = useSelector(state => state.exponent.exponentData);
 
 	return (
 		<div className={`${styles.header}`}>
-			<div className={`${styles.headerContent} ${isSticky ? styles.sticky : ''}`}>
-				<div className={styles.headerLogo}>
-					<div className={styles.headerLogoDesktop}>
-						<Logo/>
+			<div className={`${styles.headerContent} ${styles.sticky}`}>
+				<Wrapper style={{
+					display: 'flex',
+					justifyContent: 'space-between',
+					alignItems: 'center',
+				}}>
+					<div className={styles.headerLogo}>
+						<div className={styles.headerLogoDesktop}>
+							<a href="/">
+								<Logo/>
+							</a>
+						</div>
+						<div className={styles.headerLogoMobile}>
+							<LogoMobile/>
+						</div>
 					</div>
-					<div className={styles.headerLogoMobile}>
-						<LogoMobile />
+					{
+						expoData?.logo && (
+							<div className={styles.headerLogoExpo}>
+								<img src={expoData.logo} alt=""/>
+							</div>
+						)
+					}
+					<div className={styles.headerAccount}>
+						<Account/>
 					</div>
-				</div>
-				<div className={styles.headerLogoExpo}>
-					<TexpoLogo />
-				</div>
-				<div className={styles.headerAccount}>
-					<Account/>
-				</div>
+				</Wrapper>
 			</div>
 		</div>
 	);

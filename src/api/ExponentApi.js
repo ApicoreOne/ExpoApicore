@@ -52,5 +52,9 @@ export class ExponentApi{
 		return multiFetch(`${API_URL}/site/expo.list`, {})
 	}
 
+	getExpoData(body){
+		return multiFetch(`${API_URL}/site/expo.data`, body)
+	}
+
 }
 

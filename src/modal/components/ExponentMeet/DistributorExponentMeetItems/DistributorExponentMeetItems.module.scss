@@ -5,6 +5,7 @@
 
 .exponentMeetItem{
   display: flex;
+  flex-wrap: wrap;
   padding: 10px 10px;
   border-bottom: 1px solid #ccc;
   justify-content: space-between;
@@ -17,8 +18,13 @@
     background-color: #f8f8f8;
   }
 }
-
+.exponentMeetItemName{
+  text-wrap: nowrap;
+  width: 30%;
+}
 .exponentMeetItemValue{
+  text-align: end;
+  width: 50%;
   &.free{
     color: #4CAF50;
   }

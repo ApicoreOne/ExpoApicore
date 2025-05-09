@@ -58,7 +58,7 @@ const DistributorExponentMeetModal = () => {
 	return (
 		<div className={styles.modal}>
 			<div className={styles.modalTitle}>
-				<span>Встреча с </span>
+				<span>Встречи</span>
 			</div>
 
 			<ScrollBox>
