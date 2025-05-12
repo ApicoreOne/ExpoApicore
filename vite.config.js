@@ -2,12 +2,21 @@ import { defineConfig } from 'vite'
 // @ts-ignore
 import svgr from "vite-plugin-svgr";
 import react from '@vitejs/plugin-react'
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 import path from 'path'
 
 export default defineConfig({
   plugins: [
     react(),
     svgr(),
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'src/robots.txt',
+          dest: '.'
+        }
+      ]
+    })
   ],
   resolve: {
     alias: {

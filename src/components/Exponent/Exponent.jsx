@@ -10,8 +10,6 @@ import ShowDistributorExponentMeet from "@/utils/ui/ShowDistributorExponentMeet/
 const Exponent = () => {
 	const dispatch = useDispatch();
 	const exponentList = useSelector(state => state.exponent.exponentList)
-	const authorized = useSelector(state => state.userData.authorization);
-	const ExpoIDUser = Cookies.get('expo_user_id');
 	const currentExponentCode = useSelector(state => state.exponent.currentExponentCode)
 
 	const getData = async () => {
@@ -64,8 +62,8 @@ const Exponent = () => {
 					</div>
 
 					<div className={styles.exponentHeadActions}>
-						{(authorized === true || ExpoIDUser) && <ShowDistributorExponentMeet/>}
-						{/*<ShowDistributorExponentMeet />*/}
+						{/*{(authorized === true || ExpoIDUser) && <ShowDistributorExponentMeet/>}*/}
+						<ShowDistributorExponentMeet />
 						<ShowFavorite/>
 					</div>
 				</div>

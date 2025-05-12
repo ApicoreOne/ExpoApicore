@@ -78,9 +78,7 @@ const ExponentItem = ({item}) => {
 				}
 			</div>
 
-			{
-				expoUserId && authorized !== true && <ExponentMeet item={item}/>
-			}
+			<ExponentMeet item={item}/>
 		</div>
 	)
 }

@@ -81,9 +81,6 @@ const ProductList = ({productList, hideProductCard}) => {
 				<div className="i_catalog-product-head-item name">
 					<span>Название</span>
 				</div>
-				<div className="i_catalog-product-head-item inner_code">
-					<span>Внутренний код</span>
-				</div>
 				<div className="i_catalog-product-head-item quantity">
 					<span>Остаток</span>
 				</div>
@@ -115,9 +112,6 @@ const ProductList = ({productList, hideProductCard}) => {
 								</div>
 								<div className="i_catalog-product-item-name">
 									<span>{product.name}</span>
-								</div>
-								<div className="i_catalog-product-item-inner_code">
-									<span>{product.inner_code}</span>
 								</div>
 								<div className="i_catalog-product-item-quantity">
 									<span className={'i_catalog-product-item-title'}>Остаток: </span>

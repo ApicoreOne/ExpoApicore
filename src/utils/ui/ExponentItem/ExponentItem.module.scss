@@ -52,7 +52,6 @@
 
 .exponentType {
   color: #637381;
-  font-size: 0.875rem;
   margin-bottom: 1.25rem;
   display: flex;
   flex-direction: column;
@@ -69,7 +68,7 @@
   display: flex;
   gap: 1.25rem;
   align-items: center;
-  min-height: 20px;
+  min-height: 25px;
 }
 
 .exponentSocial {
@@ -79,9 +78,9 @@
     justify-content: center;
 
     svg {
-      width: 1.25rem;
-      height: 1.25rem;
-      fill: #e5e7eb;
+      width: 25px;
+      height: auto;
+      fill: #ccc;
       transition: all .4s ease;
     }
   }
@@ -103,10 +102,7 @@
   flex-direction: column;
   width: 100%;
   max-width: 250px;
-}
-
-.exponentMeet{
-
+  min-height: 43px;
 }
 
 

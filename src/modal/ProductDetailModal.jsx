@@ -41,7 +41,7 @@ const ProductDetailModal = () => {
 	}, [favoriteProductStore])
 
 	//Табы для props
-	const [currentPropsTab, setCurrentPropsTab] = useState('attributes')
+	const [currentPropsTab, setCurrentPropsTab] = useState('props')
 
 	const handleChangePropsTab = (event, newValue) => {
 		setCurrentPropsTab(newValue);
@@ -165,15 +165,13 @@ const ProductDetailModal = () => {
 									         className={'i_tabs-header'}
 									         variant="scrollable"
 									         scrollButtons="auto">
-										<Tab label="Атрибуты" value="attributes" className={'i_tabs-header-item'}/>
 										<Tab label="Свойства" value="props" className={'i_tabs-header-item'}/>
-										<Tab label="Параметры" value="params" className={'i_tabs-header-item'}/>
 									</TabList>
 
-									{/*АТРИБУТЫ*/}
-									<TabPanel value="attributes">
-										<DetailAttribute attribute={productDetail} itemShowCount={itemShowCount}/>
-									</TabPanel>
+									{/*/!*АТРИБУТЫ*!/*/}
+									{/*<TabPanel value="attributes">*/}
+									{/*	<DetailAttribute attribute={productDetail} itemShowCount={itemShowCount}/>*/}
+									{/*</TabPanel>*/}
 
 									{/*СВОЙСТВА*/}
 									{
@@ -206,14 +204,14 @@ const ProductDetailModal = () => {
 											</>
 									}
 
-									{/*ПАРАМЕТРЫ*/}
-									{
-										productDetail.params && productDetail.params !== 'null' && (
-											<TabPanel value="params">
-												<DetailParams params={productDetail.params} itemShowCount={itemShowCount}/>
-											</TabPanel>
-										)
-									}
+									{/*/!*ПАРАМЕТРЫ*!/*/}
+									{/*{*/}
+									{/*	productDetail.params && productDetail.params !== 'null' && (*/}
+									{/*		<TabPanel value="params">*/}
+									{/*			<DetailParams params={productDetail.params} itemShowCount={itemShowCount}/>*/}
+									{/*		</TabPanel>*/}
+									{/*	)*/}
+									{/*}*/}
 								</TabContext>
 
 							</div>

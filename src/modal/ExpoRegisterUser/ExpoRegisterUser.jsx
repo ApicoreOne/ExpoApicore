@@ -14,9 +14,7 @@ const ExpoRegisterUser = () => {
 	const [btnLoad, setBtnLoad] = useState(false);
 	const [error, setError] = useState("");
 
-	const catalogHash = useSelector(
-		(state) => state.multiModal.modals[0].modalData.hash
-	);
+	const catalogHash = useSelector((state) => state.multiModal.modals[0].modalData.hash);
 
 	const sendRegisterUser = async () => {
 		setBtnLoad(true);
