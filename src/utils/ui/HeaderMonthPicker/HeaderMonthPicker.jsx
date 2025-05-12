@@ -1,20 +1,31 @@
-import {useSelector} from "react-redux";
-import styles from './HeaderMonthPicker.module.scss'
+import { useSelector } from "react-redux";
+import styles from './HeaderMonthPicker.module.scss';
+import { useState, useEffect } from "react";
 
 const HeaderMonthPicker = () => {
-	const headerMonths = useSelector(state => state.app.headerMonths)
+	const headerMonths = useSelector(state => state.app.headerMonths) || [];
+	const [activeMonths, setActiveMonths] = useState(null);
 
-	return(
+	useEffect(() => {
+		if (headerMonths.length > 0) {
+			const activeMonth = headerMonths.find(item => item.active)?.code || null;
+			setActiveMonths(activeMonth);
+		}
+	}, [headerMonths]);
+
+	return (
 		<div className={styles.headerMonthPicker}>
-			{headerMonths.length > 0 && headerMonths.map((item, index) => {
-				return(
-					<div className={`${styles.headerMonthPickerItem} ${item.active ? styles.active : ''}`} key={index}>
-						<span>{item.title}</span>
-					</div>
-				)
-			})}
+			{headerMonths.map((item) => (
+				<div
+					key={item.code}
+					className={`${styles.headerMonthPickerItem} ${item.code === activeMonths ? styles.active : ''}`}
+					onClick={() => setActiveMonths(item.code)}
+				>
+					<span>{item.title}</span>
+				</div>
+			))}
 		</div>
-	)
+	);
 }
 
 export default HeaderMonthPicker;

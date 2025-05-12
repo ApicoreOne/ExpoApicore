@@ -15,10 +15,18 @@ const ExpoListItems = ({items}) => {
 						</div>
 						<div className={styles.expoListRight}>
 							<div className={styles.expoListItemName}>{item.name}</div>
-							<div className={styles.expoListItemAddress}>{item.address}</div>
+							<div className={styles.expoListItemDate}>
+								<div className={styles.expoListItemStart}>
+									{item.start}
+								</div>
+								-
+								<div className={styles.expoListItemEnd}>
+									{item.end}
+								</div>
+							</div>
+
 							<div className={styles.expoListItemCountry}>{item.country_name}</div>
-							<div className={styles.expoListItemStart}>{item.start}</div>
-							<div className={styles.expoListItemEnd}>{item.end}</div>
+							<div className={styles.expoListItemAddress}>{item.address}</div>
 						</div>
 					</a>
 				)

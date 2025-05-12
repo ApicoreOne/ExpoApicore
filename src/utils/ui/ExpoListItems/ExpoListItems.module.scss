@@ -21,7 +21,9 @@
 }
 
 .expoListRight{
-
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
 }
 
 .expoListLeft{
@@ -35,4 +37,14 @@
   height: auto;
   border-radius: 15px;
   object-fit: cover;
+}
+
+.expoListItemName{
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.expoListItemDate{
+  display: flex;
+  gap: 10px;
 }
