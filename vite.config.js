@@ -12,7 +12,7 @@ export default defineConfig({
     viteStaticCopy({
       targets: [
         {
-          src: path.resolve(__dirname, 'public/robots.txt'),
+          src: path.resolve(__dirname, './public/robots.txt'),
           dest: '.'
         }
       ]
