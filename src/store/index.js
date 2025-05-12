@@ -6,6 +6,7 @@ import {catalogReducer} from "@/store/reducers/catalogReducer.jsx";
 import {favoriteReducer} from "@/store/reducers/favoriteReducer.jsx";
 import {userDataReducer} from "@/store/reducers/userDataReducer.jsx";
 import {popupReducer} from "@/store/reducers/popupReducer.jsx";
+import {appReducer} from "@/store/reducers/appReducer.jsx";
 
 
 const rootReducer = combineReducers({
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
 	catalog: catalogReducer,
 	favorite: favoriteReducer,
 	userData: userDataReducer,
-	multiPopup: popupReducer
+	multiPopup: popupReducer,
+	app: appReducer
 });
 
 export const store = createStore(rootReducer, composeWithDevTools());

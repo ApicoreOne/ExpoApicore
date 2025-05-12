@@ -1,0 +1,19 @@
+.expoLists{
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 100%;
+}
+
+.expoList{
+  width: 100%;
+
+
+  .expoListTitle{
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 50px;
+  }
+}

@@ -1,0 +1,38 @@
+.expoListItems{
+
+}
+
+.expoListItem{
+  text-decoration: none;
+  color: #000;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 3rem 1.25rem 2.5rem;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 0 2px rgba(245, 245, 245, 0.5), 0 1px 3px rgba(140, 140, 140, 0.4);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  flex-grow: 1;
+  gap: 20px;
+  min-height: 320px;
+}
+
+.expoListRight{
+
+}
+
+.expoListLeft{
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.expoListItemImg{
+  width: 80%;
+  height: auto;
+  border-radius: 15px;
+  object-fit: cover;
+}

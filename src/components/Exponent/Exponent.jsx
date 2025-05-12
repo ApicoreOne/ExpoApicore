@@ -71,7 +71,7 @@ const Exponent = () => {
 
 				<div className={styles.exponentItems}>
 					{
-						exponentList.length > 0 && exponentList.map((item, index) => {
+						exponentList?.length > 0 && exponentList.map((item, index) => {
 							return (
 								<ExponentItem key={index} item={item}/>
 							)

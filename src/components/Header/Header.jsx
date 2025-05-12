@@ -10,13 +10,16 @@ import getLastDomainSegment from "@/utils/getLastDomainSegment.js";
 import useLocalStorage from "@/hooks/useLocalStorage.jsx";
 import i18n from "@/i18n";
 import {useTranslation} from "react-i18next";
+import {useWindowWidth} from "@/hooks/index.js";
+import HeaderMonthPicker from "@/utils/ui/HeaderMonthPicker/HeaderMonthPicker.jsx";
 
 const Header = () => {
 	const lastSegment = getLastDomainSegment()
 	const {t} = useTranslation(); // Переводы
 	const [language, setLanguage] = useLocalStorage('language', lastSegment === 'one' ? 'en' : 'ru'); // Локальное хранилище для языка
 	const expoData = useSelector(state => state.exponent.exponentData);
-
+	const windowWidth = useWindowWidth()
+	const headerMonths = useSelector(state => state.app.headerMonths)
 
 	useEffect(() => {
 		i18n.changeLanguage(language); // Изменение языка при загрузке
@@ -30,40 +33,51 @@ const Header = () => {
 	}
 
 	return (
-		<div className={`${styles.header}`}>
+		<div className={`${styles.header} ${headerMonths?.length > 0 ? styles.withBottom : ''}`}>
 			<div className={`${styles.headerContent} ${styles.sticky}`}>
-				<Wrapper style={{
-					display: 'flex',
-					justifyContent: 'space-between',
-					alignItems: 'center',
-					padding: '0 50px'
-				}}>
-					<div className={styles.headerLogo}>
-						<div className={styles.headerLogoDesktop}>
-							<a href="/">
-								<Logo/>
-							</a>
-						</div>
-						<div className={styles.headerLogoMobile}>
-							<LogoMobile/>
-						</div>
-					</div>
-					{
-						expoData?.logo && (
-							<div className={styles.headerLogoExpo}>
-								<img src={expoData.logo} alt=""/>
+				<div className={styles.headerTop}>
+					<Wrapper style={{
+						display: 'flex',
+						justifyContent: 'space-between',
+						alignItems: 'center',
+						padding: windowWidth > 1920 ? '0 50px' : '0'
+					}}>
+						<div className={styles.headerLogo}>
+							<div className={styles.headerLogoDesktop}>
+								<a href="/">
+									<Logo/>
+								</a>
 							</div>
-						)
-					}
-					<TabWrapper>
-						<div className='i_change_language'>
-							<LanguageSelector setCurrentLanguage={setCurrentLanguage} language={language}/>
+							<div className={styles.headerLogoMobile}>
+								<LogoMobile/>
+							</div>
 						</div>
-						<div className={styles.headerAccount}>
-							<Account/>
+						{
+							expoData?.logo && (
+								<div className={styles.headerLogoExpo}>
+									<img src={expoData.logo} alt=""/>
+								</div>
+							)
+						}
+						<TabWrapper>
+							<div className='i_change_language'>
+								<LanguageSelector setCurrentLanguage={setCurrentLanguage} language={language}/>
+							</div>
+							<div className={styles.headerAccount}>
+								<Account/>
+							</div>
+						</TabWrapper>
+					</Wrapper>
+				</div>
+				{
+					headerMonths && headerMonths.length > 0 && (
+						<div className={styles.headerBottom}>
+							<Wrapper style={{padding: windowWidth > 1920 ? '0 50px' : '0'}}>
+								<HeaderMonthPicker/>
+							</Wrapper>
 						</div>
-					</TabWrapper>
-				</Wrapper>
+					)
+				}
 			</div>
 		</div>
 	);

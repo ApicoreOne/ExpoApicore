@@ -8,6 +8,7 @@ import ExponentMeet from "@/utils/ui/ExponentMeet/ExponentMeet.jsx";
 import ScrollBox from "@/utils/ui/ScrollBox/ScrollBox.jsx";
 import Wrapper from "@/utils/ui/Wrapper/Wrapper.jsx";
 import TabWrapper from "@/utils/ui/TabWrapper/TabWrapper.jsx";
+import ExpoListItems from "@/utils/ui/ExpoListItems/ExpoListItems.jsx";
 
 export {
 	ExponentItem,
@@ -19,5 +20,6 @@ export {
 	ExponentMeet,
 	ScrollBox,
 	Wrapper,
-	TabWrapper
+	TabWrapper,
+	ExpoListItems
 }

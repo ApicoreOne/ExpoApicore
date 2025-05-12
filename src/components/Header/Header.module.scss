@@ -2,6 +2,20 @@
   width: 100%;
   height: 85px;
 
+  &.withBottom{
+    height: 140px;
+    .headerContent{
+      height: 140px;
+    }
+
+    @media screen and (max-width: 1024px){
+      height: 115px;
+      .headerContent{
+        height:115px;
+      }
+    }
+  }
+
   @media screen and (max-width: 1024px){
     height: 60px;
   }
