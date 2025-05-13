@@ -73,6 +73,13 @@ export const exponentReducer = (state = initialState, action = {}) => {
 			}
 		}
 
+		case 'CLEAR_EXPONENT_DATA': {
+			return {
+				...state,
+				exponentData: null
+			}
+		}
+
 		default:
 			return state;
 	}

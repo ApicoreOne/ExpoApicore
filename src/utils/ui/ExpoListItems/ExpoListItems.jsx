@@ -1,13 +1,13 @@
 import styles from './ExpoListItems.module.scss'
+import {Link} from "react-router-dom";
 
 const ExpoListItems = ({items}) => {
-
 
 	return(
 		<div className={styles.expoListItems}>
 			{items.map(item => {
 				return(
-					<a href={item.link} target={"_blank"} key={item.id} className={styles.expoListItem}>
+					<Link to={`/${item.code}`} key={item.id} className={styles.expoListItem}>
 						<div className={styles.expoListLeft}>
 							<div className={styles.expoListItemImg}>
 								<img src={item.logo} alt={item.code}/>
@@ -28,7 +28,7 @@ const ExpoListItems = ({items}) => {
 							<div className={styles.expoListItemCountry}>{item.country_name}</div>
 							<div className={styles.expoListItemAddress}>{item.address}</div>
 						</div>
-					</a>
+					</Link>
 				)
 			})}
 		</div>

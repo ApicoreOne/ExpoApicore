@@ -10,26 +10,6 @@ import ShowDistributorExponentMeet from "@/utils/ui/ShowDistributorExponentMeet/
 const Exponent = () => {
 	const dispatch = useDispatch();
 	const exponentList = useSelector(state => state.exponent.exponentList)
-	const currentExponentCode = useSelector(state => state.exponent.currentExponentCode)
-
-	const getData = async () => {
-		try{
-			const response = await api.exponentApi.getExponentsList({code: currentExponentCode})
-			const expoData = await api.exponentApi.getExpoData({code: currentExponentCode})
-
-			if(response.status === true){
-				dispatch({type: "SET_EXPONENT_LIST", exponentList: response.exponents})
-				dispatch({type: "SET_USER_ENTITY", entity: response.entity})
-			}
-
-			if(expoData.status === true){
-				dispatch({type: "SET_EXPONENT_DATA", exponentData: expoData.expo})
-			}
-
-		}catch (e) {
-			console.log(e)
-		}
-	}
 
 	useURLParamWatcher('catalog', (catalogHash) => {
 		// Получаем идентификатор пользователя из cookie
@@ -48,10 +28,6 @@ const Exponent = () => {
 			}
 		}
 	})
-
-	useEffect(() => {
-		getData()
-	}, [currentExponentCode]);
 
 	return(
 		<Wrapper wrapperBackground={'#f7f8fa'}>

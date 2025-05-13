@@ -12,18 +12,31 @@ import i18n from "@/i18n";
 import {useTranslation} from "react-i18next";
 import {useWindowWidth} from "@/hooks/index.js";
 import HeaderMonthPicker from "@/utils/ui/HeaderMonthPicker/HeaderMonthPicker.jsx";
+import {Link, useHref} from "react-router-dom";
 
 const Header = () => {
-	const lastSegment = getLastDomainSegment()
+	const [showHeaderMonths, setShowHeaderMonths] = useState(false); // Состояние для отображения месяцев в заголовке
+
 	const {t} = useTranslation(); // Переводы
+	const lastSegment = getLastDomainSegment()
 	const [language, setLanguage] = useLocalStorage('language', lastSegment === 'one' ? 'en' : 'ru'); // Локальное хранилище для языка
-	const expoData = useSelector(state => state.exponent.exponentData);
 	const windowWidth = useWindowWidth()
+	const url = useHref();
+
+	const expoData = useSelector(state => state.exponent.exponentData);
 	const headerMonths = useSelector(state => state.app.headerMonths)
 
 	useEffect(() => {
 		i18n.changeLanguage(language); // Изменение языка при загрузке
 	}, []);
+
+	useEffect(()=>{
+		if (url === '/' && headerMonths?.length > 0) {
+			setShowHeaderMonths(true);
+		}else{
+			setShowHeaderMonths(false);
+		}
+	},[url])
 
 	// Установка текущего языка и перезагрузка страницы
 	const setCurrentLanguage = (el) => {
@@ -33,27 +46,27 @@ const Header = () => {
 	}
 
 	return (
-		<div className={`${styles.header} ${headerMonths?.length > 0 ? styles.withBottom : ''}`}>
+		<div className={`${styles.header} ${showHeaderMonths ? styles.withBottom : ''}`}>
 			<div className={`${styles.headerContent} ${styles.sticky}`}>
 				<div className={styles.headerTop}>
 					<Wrapper style={{
 						display: 'flex',
 						justifyContent: 'space-between',
 						alignItems: 'center',
-						padding: windowWidth > 1920 ? '0 50px' : '0'
+						padding: windowWidth > 1920 ? '0 50px' : '0',
 					}}>
 						<div className={styles.headerLogo}>
 							<div className={styles.headerLogoDesktop}>
-								<a href="/">
+								<Link to="/">
 									<Logo/>
-								</a>
+								</Link>
 							</div>
 							<div className={styles.headerLogoMobile}>
 								<LogoMobile/>
 							</div>
 						</div>
 						{
-							expoData?.logo && (
+							url !== '/' && expoData?.logo && (
 								<div className={styles.headerLogoExpo}>
 									<img src={expoData.logo} alt=""/>
 								</div>
@@ -70,7 +83,7 @@ const Header = () => {
 					</Wrapper>
 				</div>
 				{
-					headerMonths && headerMonths.length > 0 && (
+					showHeaderMonths && (
 						<div className={styles.headerBottom}>
 							<Wrapper style={{padding: windowWidth > 1920 ? '0 50px' : '0'}}>
 								<HeaderMonthPicker/>
