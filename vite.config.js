@@ -2,25 +2,17 @@ import { defineConfig } from 'vite'
 // @ts-ignore
 import svgr from "vite-plugin-svgr";
 import react from '@vitejs/plugin-react'
-import { viteStaticCopy } from 'vite-plugin-static-copy';
 import path from 'path'
 
 export default defineConfig({
+  publicDir: 'public',
   plugins: [
     react(),
     svgr(),
-    viteStaticCopy({
-      targets: [
-        {
-          src: path.resolve('./public/robots.txt'),
-          dest: '.'
-        }
-      ]
-    })
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'), // Замените './src' на путь к вашей корневой папке
+      '@': path.resolve(__dirname, './src'),
     },
   },
    server:{
