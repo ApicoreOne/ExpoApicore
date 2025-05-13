@@ -36,7 +36,7 @@ const Header = () => {
 		}else{
 			setShowHeaderMonths(false);
 		}
-	},[url])
+	},[url, headerMonths])
 
 	// Установка текущего языка и перезагрузка страницы
 	const setCurrentLanguage = (el) => {
@@ -62,7 +62,9 @@ const Header = () => {
 								</Link>
 							</div>
 							<div className={styles.headerLogoMobile}>
-								<LogoMobile/>
+								<Link to="/">
+									<LogoMobile/>
+								</Link>
 							</div>
 						</div>
 						{

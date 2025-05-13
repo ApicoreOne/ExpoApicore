@@ -1,7 +1,3 @@
-.expoListItems{
-
-}
-
 .expoListItem{
   text-decoration: none;
   color: #000;
@@ -28,6 +24,7 @@
 
 .expoListLeft{
   width: 25%;
+  min-width: 250px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,4 +44,18 @@
 .expoListItemDate{
   display: flex;
   gap: 10px;
+}
+
+@media screen and (max-width: 768px){
+  .expoListItem{
+    flex-direction: column;
+    gap: 0;
+    padding: 30px;
+    min-height: 0;
+  }
+  .expoListLeft{
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 20px;
+  }
 }

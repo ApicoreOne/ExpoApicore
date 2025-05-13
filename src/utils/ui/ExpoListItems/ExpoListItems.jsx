@@ -7,7 +7,7 @@ const ExpoListItems = ({items}) => {
 		<div className={styles.expoListItems}>
 			{items.map(item => {
 				return(
-					<Link to={`/${item.code}`} key={item.id} className={styles.expoListItem}>
+					<Link to={`/${item.code}`} key={item.id} className={styles.expoListItem} id={item.active ? 'active' : ''}>
 						<div className={styles.expoListLeft}>
 							<div className={styles.expoListItemImg}>
 								<img src={item.logo} alt={item.code}/>
