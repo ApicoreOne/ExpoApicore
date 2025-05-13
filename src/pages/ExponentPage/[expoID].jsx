@@ -30,6 +30,12 @@ const ExponentPage = () => {
 	}
 
 	useEffect(() => {
+		// Прокрутка страницы наверх
+		window.scrollTo({ top: 0, left: 0 });
+		getData();
+	}, [expoID]);
+
+	useEffect(() => {
 		getData()
 	}, []);
 

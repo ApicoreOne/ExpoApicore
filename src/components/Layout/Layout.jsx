@@ -15,7 +15,6 @@ const Layout = () => {
 
 	useEffect(() => {
 		if(href === '/') {
-			console.log(123)
 			dispatch({type: "CLEAR_EXPONENT_DATA"});
 		}
 	}, [href]);

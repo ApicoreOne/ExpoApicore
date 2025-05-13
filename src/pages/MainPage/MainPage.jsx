@@ -18,7 +18,6 @@ const MainPage = () => {
 			if(response.status === true){
 				setExponentList(response.expo.expo_list)
 				dispatch({type: "SET_HEADER_MONTHS", headerMonths: response.expo.months})
-				console.log(response)
 			}
 
 		}catch (e) {

@@ -10,8 +10,16 @@ const HeaderMonthPicker = () => {
 		if (headerMonths.length > 0) {
 			const activeMonth = headerMonths.find(item => item.active)?.code || null;
 			setActiveMonths(activeMonth);
+
+			document.querySelector(`#expo-focus`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
 		}
 	}, [headerMonths]);
+
+	function handleChangeActiveMonths(code) {
+		setActiveMonths(code);
+
+		document.querySelector(`[data-code=${code}]`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+	}
 
 	return (
 		<div className={styles.headerMonthPicker}>
@@ -19,7 +27,7 @@ const HeaderMonthPicker = () => {
 				<div
 					key={item.code}
 					className={`${styles.headerMonthPickerItem} ${item.code === activeMonths ? styles.active : ''}`}
-					onClick={() => setActiveMonths(item.code)}
+					onClick={() => handleChangeActiveMonths(item.code)}
 				>
 					<span>{item.title}</span>
 				</div>
