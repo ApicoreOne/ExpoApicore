@@ -13,11 +13,14 @@ const ExponentMeetModal = () => {
 	const [currentDate, setCurrentDate] = useState('20.04.2025')
 
 	const modalDate = [
-		{name: 21, value: '21.04.2025'},
-		{name: 22, value: '22.04.2025'},
-		{name: 23, value: '23.04.2025'},
-		{name: 24, value: '24.04.2025'},
-		{name: 25, value: '25.04.2025'},
+		{name: 20, value: '20.05.2025'},
+		{name: 21, value: '21.05.2025'},
+		{name: 22, value: '22.05.2025'},
+		{name: 23, value: '23.05.2025'},
+		{name: 24, value: '24.05.2025'},
+		{name: 25, value: '25.05.2025'},
+		{name: 26, value: '26.05.2025'},
+		{name: 27, value: '27.05.2025'},
 	]
 
 	const getData = async () => {
@@ -56,7 +59,7 @@ const ExponentMeetModal = () => {
 			<ScrollBox>
 				<div className={styles.modalContent}>
 					<div className={styles.modalContentDate}>
-						<span>2025 г. Апрель</span>
+						<span>2025 г. Май</span>
 					</div>
 
 					<div className={styles.modalContentDateItems}>

@@ -9,8 +9,8 @@ const ExponentShowCatalog = ({item}) => {
 	const dispatch = useDispatch();
 
 	// Функция для открытия модального окна при нажатии на "Смотреть каталог"
-	const openExpoModal = async (item) => {
-
+	const openExpoModal = async (e, item) => {
+		e.stopPropagation()
 		removeParam('catalog')
 
 		// Получаем идентификатор пользователя из cookie
@@ -33,7 +33,7 @@ const ExponentShowCatalog = ({item}) => {
 
 	return (
 		<>
-			<div className={styles.exponentBtn} onClick={() => {openExpoModal(item)}}>
+			<div className={styles.exponentBtn} onClick={(e) => {openExpoModal(e,item)}}>
 				<span>Смотреть каталог</span>
 			</div>
 		</>

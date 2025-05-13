@@ -5,6 +5,7 @@ import styles from './Banner.module.scss';
 import TexpoLogo from '@/images/TexpoBanner.svg?react';
 
 import { useWindowWidth } from "@/hooks/index";
+import {useSelector} from "react-redux";
 
 const Banner = () => {
 	const bannerRef = useRef(null);
@@ -12,6 +13,8 @@ const Banner = () => {
 
 	const [vantaEffect, setVantaEffect] = useState(null);
 	const [vantaSize, setVantaSize] = useState(null);
+
+	const exponentData = useSelector(state => state.exponent.exponentData);
 
 	// Размер Vanta эффекта, зависит от ширины экрана
 	useEffect(() => {
@@ -64,7 +67,7 @@ const Banner = () => {
 	return (
 		<div ref={bannerRef} className={styles.banner}>
 			<div className={styles.bannerImg}>
-				<TexpoLogo />
+				<img src={exponentData?.logo} alt=""/>
 			</div>
 		</div>
 	);

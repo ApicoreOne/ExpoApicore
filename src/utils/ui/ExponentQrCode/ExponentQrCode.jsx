@@ -6,13 +6,14 @@ const ExponentQrCode = ({item}) => {
 
 	const dispatch = useDispatch();
 
-	const openQRModal = (item) => {
+	const openQRModal = (e, item) => {
+		e.stopPropagation();
 		dispatch({type: "OPEN_MODAL", modalType: 'qrModal', modalLevel : 1, modalData: {item: item}});
 	}
 
 	return(
-		<div className={styles.exponentQrCode} onClick={() => {
-			openQRModal(item)
+		<div className={styles.exponentQrCode} onClick={(e) => {
+			openQRModal(e, item)
 		}}>
 			<QrCode />
 		</div>

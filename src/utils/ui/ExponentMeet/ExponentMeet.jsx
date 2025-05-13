@@ -6,7 +6,8 @@ const ExponentMeet = ({item}) => {
 	const dispatch = useDispatch()
 	const authorized = useSelector(state => state.userData.authorization);
 
-	const openModal = () => {
+	const openModal = (e) => {
+		e.stopPropagation()
 
 		const ExpoIDUser = Cookies.get('expo_user_id');
 		// Если пользователь идентифицирован по cookie, просто выводим в консоль

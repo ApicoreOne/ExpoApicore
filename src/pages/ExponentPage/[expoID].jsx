@@ -1,16 +1,17 @@
 import Banner from "@/components/Banner/Banner.jsx";
 import Exponent from "@/components/Exponent/Exponent.jsx";
 import {useParams} from "react-router-dom";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
 import {api} from "@/api/index.js";
 
 const ExponentPage = () => {
 	const dispatch = useDispatch();
-
+	const [isLoading, setIsLoading] = useState(true);
 	let {expoID} = useParams();
 
 	const getData = async () => {
+		setIsLoading(true)
 		try{
 			const response = await api.exponentApi.getExponentsList({code: expoID})
 			const expoData = await api.exponentApi.getExpoData({code: expoID})
@@ -26,6 +27,8 @@ const ExponentPage = () => {
 
 		}catch (e) {
 			console.log(e)
+		}finally {
+			setIsLoading(false)
 		}
 	}
 
@@ -41,8 +44,12 @@ const ExponentPage = () => {
 
 	return (
 		<>
-			<Banner/>
-			<Exponent/>
+			{!isLoading && (
+				<>
+					<Banner/>
+					<Exponent/>
+				</>
+			)}
 		</>
 	)
 }

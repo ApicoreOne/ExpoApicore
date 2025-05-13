@@ -6,11 +6,12 @@ import WhatsappLogo from '@/images/social/whatsapp.svg?react';
 import YoutubeLogo from '@/images/social/youtube.svg?react';
 import {ExponentMeet, ExponentQrCode, ExponentShowCatalog} from "@/utils/ui/";
 import Cookies from "js-cookie";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 const ExponentItem = ({item}) => {
 
-	const expoUserId = Cookies.get('expo_user_id')
+	const dispatch = useDispatch();
+
 	const authorized = useSelector(state => state.userData.authorization);
 	const ExpoIDUser = Cookies.get('expo_user_id');
 
@@ -37,8 +38,12 @@ const ExponentItem = ({item}) => {
 		}
 	]
 
+	function openDetailExponentModal(){
+		dispatch({type:"OPEN_MODAL", modalLevel: 1, modalType: 'exponentDetailModal'});
+	}
+
 	return(
-		<div className={styles.exponentItem}>
+		<div className={styles.exponentItem} onClick={openDetailExponentModal}>
 			<div className={styles.exponentItemImg}>
 				<img src={item.logo_link} alt={item.name}/>
 			</div>
@@ -49,7 +54,7 @@ const ExponentItem = ({item}) => {
 
 			<div className={styles.exponentType}>
 				<span>{item.contact}</span>
-				{(ExpoIDUser || authorized) && <a href={`tel:+${item.phone}`}>{item.phone}</a>}
+				{(ExpoIDUser || authorized) && <a href={`tel:+${item.phone}`} onClick={(e)=>{e.stopPropagation()}}>{item.phone}</a>}
 			</div>
 
 			<div className={styles.exponentSocials}>
@@ -58,7 +63,7 @@ const ExponentItem = ({item}) => {
 						if (!social.link) return null;
 						return (
 							<div className={styles.exponentSocial} key={index}>
-								<a href={social.link} target={"_blank"}>
+								<a href={social.link} target={"_blank"} onClick={(e)=>{e.stopPropagation()}}>
 									{social.logo}
 								</a>
 							</div>
