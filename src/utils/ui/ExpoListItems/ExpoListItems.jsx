@@ -28,6 +28,27 @@ const ExpoListItems = ({items}) => {
 							<div className={styles.expoListItemCountry}>{item.country_name}</div>
 							<div className={styles.expoListItemAddress}>{item.address}</div>
 							<div className={styles.expoListOrganizer}>{item.organizer}</div>
+
+							{
+								item?.partners?.length > 0 && (
+									<>
+										<div className={styles.expoListPartnersTitle}>{item.partners_title}</div>
+										<div className={styles.expoListPartners}>
+											{
+												item.partners.map((partner, index) => {
+													return (
+														<>
+															<div className={styles.expoListPartner} key={index}>
+																<img src={partner.logo} alt={partner.name}/>
+															</div>
+														</>
+													)
+												})
+											}
+										</div>
+									</>
+								)
+							}
 						</div>
 					</Link>
 				)

@@ -13,6 +13,7 @@ import AuthFormModal from "@/modal/AuthFormModal/AuthFormModal.jsx";
 import ExponentMeetModal from "@/modal/ExponentMeetModal/ExponentMeetModal.jsx";
 import {useUrlParams, useViewportHeight, useWindowWidth} from "@/hooks/index.js";
 import DistributorExponentMeetModal from "@/modal/DistributorExponentMeetModal/DistributorExponentMeetModal.jsx";
+import ExponentDetailModal from "@/modal/ExponentDetailModal/ExponentDetailModal.jsx";
 
 const MultiModal = () => {
 
@@ -78,6 +79,7 @@ const MultiModal = () => {
 						{modal.modalType === 'authFormModal' && <AuthFormModal />}
 						{modal.modalType === 'exponentMeetModal' && <ExponentMeetModal />}
 						{modal.modalType === 'distributorExponentMeetModal' && <DistributorExponentMeetModal />}
+						{modal.modalType === 'exponentDetailModal' && <ExponentDetailModal />}
 					</div>
 				</div>
 			)

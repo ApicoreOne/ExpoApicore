@@ -39,7 +39,7 @@ const ExponentItem = ({item}) => {
 	]
 
 	function openDetailExponentModal(){
-		dispatch({type:"OPEN_MODAL", modalLevel: 1, modalType: 'exponentDetailModal'});
+		dispatch({type:"OPEN_MODAL", modalLevel: 1, modalType: 'exponentDetailModal', modalData:{item: item}});
 	}
 
 	return(
