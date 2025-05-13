@@ -27,6 +27,7 @@ const ExpoListItems = ({items}) => {
 
 							<div className={styles.expoListItemCountry}>{item.country_name}</div>
 							<div className={styles.expoListItemAddress}>{item.address}</div>
+							<div className={styles.expoListOrganizer}>{item.organizer}</div>
 						</div>
 					</Link>
 				)
