@@ -1,10 +1,10 @@
-import InputMask from "react-input-mask";
 import {useDispatch, useSelector} from "react-redux";
 import HelpIcon from "@/images/info.svg?react";
 import RequiredIcon from "@/images/requiered-icon.svg?react";
 import styles from "./CustomInput.module.scss";
 import {COUNTRY_CONFIG} from "@/utils/config.js";
 import formatNumberWithSpaces from "@/utils/formatNumberWithSpaces.js";
+import InputMask from "react-input-mask";
 
 // Кастомный инпут
 const CustomInput = ({
@@ -96,7 +96,7 @@ const CustomInput = ({
 					maxLength={maxLength}
 				/>
 			) : type === "number" ? (
-				<input
+				<InputMask
 					value={value}
 					onChange={(e) => {
 						const value = e.target.value;

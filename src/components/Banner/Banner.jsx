@@ -16,6 +16,8 @@ const Banner = () => {
 
 	const exponentData = useSelector(state => state.exponent.exponentData);
 
+	console.log(exponentData)
+
 	// Размер Vanta эффекта, зависит от ширины экрана
 	useEffect(() => {
 		if (windowWidth <= 480) {
@@ -33,7 +35,7 @@ const Banner = () => {
 
 	// Инициализация Vanta после того, как DOM готов
 	useEffect(() => {
-		if (!vantaEffect) {
+		if (!vantaEffect && exponentData.code !== "ecom-retail") {
 			import('vanta/dist/vanta.halo.min').then((VANTA) => {
 				const effect = VANTA.default({
 					el: bannerRef.current,
