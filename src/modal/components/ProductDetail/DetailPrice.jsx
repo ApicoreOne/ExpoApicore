@@ -1,10 +1,13 @@
+import {useTranslation} from "react-i18next";
+
 const DetailPrice = ({price}) => {
+	const { t } = useTranslation();
 	return (
 		<div className="i_product-detail-price">
 			<div className="i_product-detail-price-items">
 				<div className={`i_product-detail-price-item alone-item`}>
 					<div className="i_product-detail-price-item-name">
-						<span>Цена</span>
+						<span>{t("PRODUCT_PRICE")}</span>
 					</div>
 					<div className="i_product-detail-price-item-value">
             <span>
@@ -13,7 +16,7 @@ const DetailPrice = ({price}) => {
 		              {price.print_price}
 	              </>
               ) : (
-	              "Нет цены"
+	              t("PRODUCT_PRICE_EMPTY")
               )}
             </span>
 					</div>

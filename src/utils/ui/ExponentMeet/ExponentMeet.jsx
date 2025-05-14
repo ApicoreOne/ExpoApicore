@@ -1,10 +1,12 @@
 import styles from './ExponentMeet.module.scss'
 import {useDispatch, useSelector} from "react-redux";
 import Cookies from "js-cookie";
+import {useTranslation} from "react-i18next";
 
 const ExponentMeet = ({item}) => {
 	const dispatch = useDispatch()
 	const authorized = useSelector(state => state.userData.authorization);
+	const {t} = useTranslation(); // Переводы
 
 	const openModal = (e) => {
 		e.stopPropagation()
@@ -27,7 +29,7 @@ const ExponentMeet = ({item}) => {
 
 	return(
 		<div className={styles.exponentMeet} onClick={openModal}>
-			<span>Назначить встречу</span>
+			<span>{t("SET_MEETING")}</span>
 		</div>
 	)
 }

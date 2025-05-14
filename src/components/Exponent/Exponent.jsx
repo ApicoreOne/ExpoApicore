@@ -1,15 +1,16 @@
 import styles from './Exponent.module.scss'
-import {useEffect} from "react";
-import {api} from "@/api/index.js";
 import {ExponentItem, ShowFavorite, Wrapper} from "@/utils/ui/index.js";
 import {useDispatch, useSelector} from "react-redux";
 import {useURLParamWatcher} from "@/hooks/index";
 import Cookies from 'js-cookie';
 import ShowDistributorExponentMeet from "@/utils/ui/ShowDistributorExponentMeet/ShowDistributorExponentMeet.jsx";
+import {useTranslation} from "react-i18next";
 
 const Exponent = () => {
 	const dispatch = useDispatch();
 	const exponentList = useSelector(state => state.exponent.exponentList)
+
+	const {t} = useTranslation(); // Переводы
 
 	useURLParamWatcher('catalog', (catalogHash) => {
 		// Получаем идентификатор пользователя из cookie
@@ -34,7 +35,7 @@ const Exponent = () => {
 			<div className={styles.exponent}>
 				<div className={styles.exponentHead}>
 					<div className={styles.exponentTitle}>
-						<span>Экспоненты</span>
+						<span>{t("EXPONENTS_TITLE")}</span>
 					</div>
 
 					<div className={styles.exponentHeadActions}>

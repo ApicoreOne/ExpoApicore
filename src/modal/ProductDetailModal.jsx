@@ -10,8 +10,6 @@ import TabPanel from '@mui/lab/TabPanel';
 import '../styles/customMui/customTabs.scss'
 
 import DetailProps from "./components/ProductDetail/DetailProps";
-import DetailParams from "./components/ProductDetail/DetailParams";
-import DetailAttribute from "./components/ProductDetail/DetailAttribute";
 import ImageSwiper from "./components/ProductDetail/ImageSwiper";
 import DetailQuantity from "./components/ProductDetail/DetailQuantity";
 import DetailPrice from "./components/ProductDetail/DetailPrice";
@@ -22,6 +20,7 @@ import closeBtn from '../images/burger-language-arrow.svg';
 import infoImg from "../images/info.svg";
 import StarLined from '../images/texpo/star-lined.svg?react'
 import StarFilled from '../images/texpo/star-filled.svg?react'
+import {useTranslation} from "react-i18next";
 
 
 const ProductDetailModal = () => {
@@ -31,6 +30,7 @@ const ProductDetailModal = () => {
 	const [showMore, setShowMore] = useState(false)
 	const [isLoading, setIsLoading] = useState(true)
 	const dispatch = useDispatch()
+	const {t} = useTranslation(); // Переводы
 
 	const cookiesFavoriteProduct = Cookies.get('favoriteProduct')
 	const favoriteProductStore = useSelector(state => state.favorite.favoriteList)
@@ -139,8 +139,8 @@ const ProductDetailModal = () => {
 								<TabList onChange={handleChangeLeftTab}
 								         indicatorColor={'transparent'}
 								         className={'i_tabs-header i_tabs-header-left'}>
-									<Tab label="Цены" value="price" className={'i_tabs-header-item'}/>
-									<Tab label="Остатки" value="quantity" className={'i_tabs-header-item'}/>
+									<Tab label={t("PRODUCT_PRICE")} value="price" className={'i_tabs-header-item'}/>
+									<Tab label={t("PRODUCT_QUANTITY")} value="quantity" className={'i_tabs-header-item'}/>
 								</TabList>
 
 								{/*ЦЕНЫ*/}
@@ -165,7 +165,7 @@ const ProductDetailModal = () => {
 									         className={'i_tabs-header'}
 									         variant="scrollable"
 									         scrollButtons="auto">
-										<Tab label="Свойства" value="props" className={'i_tabs-header-item'}/>
+										<Tab label={t("PROPERTY_TITLE")} value="props" className={'i_tabs-header-item'}/>
 									</TabList>
 
 									{/*/!*АТРИБУТЫ*!/*/}
@@ -197,7 +197,7 @@ const ProductDetailModal = () => {
 													<div className="i_product-props-empty">
 														<div className="i_product-props-empty-title">
 															<img src={`${infoImg}`} alt=""/>
-															<span>Свойства отсутствуют.</span>
+															<span>{t('PROPERTY_EMPTY')}</span>
 														</div>
 													</div>
 												</TabPanel>
@@ -218,7 +218,7 @@ const ProductDetailModal = () => {
 
 							{/*ОПИСАНИЕ*/}
 							<div className="i_product-detail-description">
-								<span className="i_product-detail-content-title">Описание</span>
+								<span className="i_product-detail-content-title">{t("DESCRIPTION_TITLE")}</span>
 								{productDetail.description?.description ? (
 										<>
                       <div dangerouslySetInnerHTML={{__html: productDetail.description.description}}></div>
@@ -228,7 +228,7 @@ const ProductDetailModal = () => {
 										<div className="i_product-description-empty">
 											<div className="i_product-description-empty-title">
 												<img src={infoImg} alt=""/>
-												<span>Описание отсутствует.</span>
+												<span>{t("DESCRIPTION_TITLE_EMPTY")}</span>
 											</div>
 										</div>
 									</>}

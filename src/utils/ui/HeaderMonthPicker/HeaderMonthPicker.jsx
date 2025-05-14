@@ -23,7 +23,7 @@ const HeaderMonthPicker = () => {
 
 	return (
 		<div className={styles.headerMonthPicker}>
-			{headerMonths.map((item) => (
+			{headerMonths?.map((item) => (
 				<div
 					key={item.code}
 					className={`${styles.headerMonthPickerItem} ${item.code === activeMonths ? styles.active : ''}`}

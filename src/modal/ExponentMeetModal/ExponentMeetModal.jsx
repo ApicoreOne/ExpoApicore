@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import ExponentMeetItems from "@/modal/components/ExponentMeet/ExponentMeetItems/ExponentMeetItems.jsx";
 import {ScrollBox} from "@/utils/ui/index.js";
 import {api} from "@/api/index.js";
+import {useTranslation} from "react-i18next";
 
 const ExponentMeetModal = () => {
 	const dispatch = useDispatch()
@@ -11,7 +12,7 @@ const ExponentMeetModal = () => {
 	const {item} = useSelector(state => state.multiModal.modals[0].modalData)
 
 	const [currentDate, setCurrentDate] = useState('20.04.2025')
-
+	const {t} = useTranslation()
 	const modalDate = [
 		{name: 20, value: '20.05.2025'},
 		{name: 21, value: '21.05.2025'},
@@ -53,13 +54,13 @@ const ExponentMeetModal = () => {
 	return (
 		<div className={styles.modal}>
 			<div className={styles.modalTitle}>
-				<span>Встреча с {item.name}</span>
+				<span>{t("MEETING_WITH")} {item.name}</span>
 			</div>
 
 			<ScrollBox>
 				<div className={styles.modalContent}>
 					<div className={styles.modalContentDate}>
-						<span>2025 г. Май</span>
+						<span>{t("MEETING_DATE")}</span>
 					</div>
 
 					<div className={styles.modalContentDateItems}>

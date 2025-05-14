@@ -2,11 +2,13 @@ import {useDispatch} from "react-redux";
 import Cookies from 'js-cookie';
 import styles from "./ExponentShowCatalog.module.scss";
 import {useUrlParams} from "@/hooks";
+import {useTranslation} from "react-i18next";
 
 const ExponentShowCatalog = ({item}) => {
 
 	const { removeParam } = useUrlParams();
 	const dispatch = useDispatch();
+	const {t} = useTranslation(); // Переводы
 
 	// Функция для открытия модального окна при нажатии на "Смотреть каталог"
 	const openExpoModal = async (e, item) => {
@@ -34,7 +36,7 @@ const ExponentShowCatalog = ({item}) => {
 	return (
 		<>
 			<div className={styles.exponentBtn} onClick={(e) => {openExpoModal(e,item)}}>
-				<span>Смотреть каталог</span>
+				<span>{t("VIEW_CATALOG")}</span>
 			</div>
 		</>
 	)

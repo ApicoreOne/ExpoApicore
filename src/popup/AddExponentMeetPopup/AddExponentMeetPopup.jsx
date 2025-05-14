@@ -2,6 +2,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {api} from "@/api/index.js";
 import Cookies from "js-cookie";
 import Toast from "@/utils/ui/Toast/Toast.jsx";
+import {useTranslation} from "react-i18next";
 
 const AddExponentMeetPopup = () => {
 	const dispatch = useDispatch();
@@ -10,7 +11,7 @@ const AddExponentMeetPopup = () => {
 	const expoUserId = Cookies.get('expo_user_id')
 	const currentExponentMeetingDate = useSelector(state => state.exponent.exponentMeeting.currentExponentMeetingDate)
 	const currentExponentCode = useSelector(state => state.exponent.currentExponentCode)
-
+	const {t} = useTranslation()
 	const formSubmit = async () => {
 		try{
 
@@ -45,16 +46,16 @@ const AddExponentMeetPopup = () => {
 	return (
 		<div className={'i_delete-distributor-catalog-popup'}>
 			<div className="i_popup-title">
-				<span>Хотите занять слот на {popupData.item.time} ? <br/><br/> Встреча с {item.name}</span>
+				<span>{t("MEETING_POPUP_QUESTION")} {popupData.item.time} ? <br/><br/> {t("MEETING_WITH")} {item.name}</span>
 			</div>
 			<div className="i_popup-buttons">
 				<div className="i_popup-button-success" onClick={()=>{
 					dispatch({type: "SWITCH_POPUP", popupType: null, popupIsOpen: false, currentCatalogItem: null, popupData: null})
 				}}>
-					<button>Нет</button>
+					<button>{t("NO")}</button>
 				</div>
 				<div className="i_popup-button-cancel" onClick={formSubmit}>
-					<button>Да</button>
+					<button>{t("YES")}</button>
 				</div>
 			</div>
 		</div>

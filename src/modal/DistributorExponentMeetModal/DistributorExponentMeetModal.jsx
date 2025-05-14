@@ -5,6 +5,7 @@ import {ScrollBox} from "@/utils/ui/index.js";
 import DistributorExponentMeetItems from "@/modal/components/ExponentMeet/DistributorExponentMeetItems/DistributorExponentMeetItems.jsx";
 import {api} from "@/api/index.js";
 import Cookies from "js-cookie";
+import {useTranslation} from "react-i18next";
 
 const DistributorExponentMeetModal = () => {
 	const dispatch = useDispatch()
@@ -13,6 +14,7 @@ const DistributorExponentMeetModal = () => {
 	const ExpoIDUser = Cookies.get('expo_user_id');
 	const authorized = useSelector(state => state.userData.authorization);
 	const authEntity = useSelector(state => state.userData.entity);
+	const {t} = useTranslation(); // Переводы
 
 	const modalDate = [
 		{name: 20, value: '20.05.2025'},
@@ -61,13 +63,13 @@ const DistributorExponentMeetModal = () => {
 	return (
 		<div className={styles.modal}>
 			<div className={styles.modalTitle}>
-				<span>Встречи</span>
+				<span>{t("MEET_TITLE")}</span>
 			</div>
 
 			<ScrollBox>
 				<div className={styles.modalContent}>
 					<div className={styles.modalContentDate}>
-						<span>2025 г. Май</span>
+						<span>2025 г. {t("MAY")}</span>
 					</div>
 
 					<div className={styles.modalContentDateItems}>

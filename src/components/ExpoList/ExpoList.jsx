@@ -14,8 +14,8 @@ const ExpoList = ({items}) => {
 		<div className={styles.expoLists}>
 			{exponentItems.map(item => {
 				return(
-					<div className={styles.expoList} data-code={item.code}>
-						<div className={styles.expoListTitle}>
+					<div className={styles.expoList}>
+						<div className={styles.expoListTitle} data-code={item.code}>
 							<span>{item.title}</span>
 						</div>
 						<ExpoListItems items={item.items}/>

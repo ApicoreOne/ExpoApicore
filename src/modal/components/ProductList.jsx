@@ -5,6 +5,7 @@ import infoImg from "../../images/info.svg";
 import Cookies from "js-cookie";
 import StarLined from '../../images/texpo/star-lined.svg?react'
 import StarFilled from '../../images/texpo/star-filled.svg?react'
+import {useTranslation} from "react-i18next";
 
 const ProductList = ({productList, hideProductCard}) => {
 	const dispatch = useDispatch();
@@ -14,6 +15,7 @@ const ProductList = ({productList, hideProductCard}) => {
 	const cookiesFavoriteProduct = Cookies.get('favoriteProduct')
 	const favoriteProductStore = useSelector(state => state.favorite.favoriteList)
 	const [favoriteProduct, setFavoriteProduct] = useState(cookiesFavoriteProduct ? JSON.parse(cookiesFavoriteProduct) : [])
+	const {t} = useTranslation(); // Переводы
 
 	useEffect(() => {
 		setFavoriteProduct(favoriteProductStore)
@@ -73,19 +75,19 @@ const ProductList = ({productList, hideProductCard}) => {
 		<>
 			<div className="i_catalog-product-head">
 				<div className="i_catalog-product-head-item active">
-					<span>Активн.</span>
+					<span>{t("PRODUCT_ACTIVE")}</span>
 				</div>
 				<div className="i_catalog-product-head-item id">
-					<span>ID</span>
+					<span>{t("PRODUCT_ID")}</span>
 				</div>
 				<div className="i_catalog-product-head-item name">
-					<span>Название</span>
+					<span>{t("PRODUCT_NAME")}</span>
 				</div>
 				<div className="i_catalog-product-head-item quantity">
-					<span>Остаток</span>
+					<span>{t("PRODUCT_QUANTITY")}</span>
 				</div>
 				<div className="i_catalog-product-head-item price">
-					<span>Цена</span>
+					<span>{t("PRODUCT_PRICE")}</span>
 				</div>
 			</div>
 			<div className="i_catalog-product-items">
@@ -93,13 +95,13 @@ const ProductList = ({productList, hideProductCard}) => {
 					<div className="i_catalog-product-empty">
 						<div className="i_catalog-page-empty-title">
 							<img src={infoImg} alt=""/>
-							<span>Товары отсутствуют.</span>
+							<span>{t("PRODUCT_EMPTY")}</span>
 						</div>
 					</div>
 				)}
 				{
 					productList?.length > 0 ? productList?.map((product, index) => {
-						let price = product.prices && product.prices.price !== 'null' ? product.prices.price : 'Нет цены';
+						let price = product.prices && product.prices.price !== 'null' ? product.prices.price : t('PRODUCT_PRICE_EMPTY');
 						return (
 							<div className={`i_catalog-product-item`} key={product.id} onClick={()=>{
 								openCatalogDetailModal(product.id)
@@ -114,12 +116,12 @@ const ProductList = ({productList, hideProductCard}) => {
 									<span>{product.name}</span>
 								</div>
 								<div className="i_catalog-product-item-quantity">
-									<span className={'i_catalog-product-item-title'}>Остаток: </span>
-									<span>{product.order ? 'На заказ' : product.quantity}</span>
+									<span className={'i_catalog-product-item-title'}>{t("PRODUCT_QUANTITY")}: </span>
+									<span>{product.order ? t("ORDER_TITLE") : product.quantity}</span>
 								</div>
 								<div className="i_catalog-product-item-price">
-									<span className={'i_catalog-product-item-title'}>Цена: </span>
-									<span>{price ? price : 'Нет цены'}</span>
+									<span className={'i_catalog-product-item-title'}>{t("PRODUCT_PRICE")}: </span>
+									<span>{price ? price : t('PRODUCT_PRICE_EMPTY')}</span>
 								</div>
 								<div className="i_catalog-product-item-favorite" onClick={(e)=>{addToFavorite(e, product.id)}}>
 									{
@@ -134,7 +136,7 @@ const ProductList = ({productList, hideProductCard}) => {
 					<div className={'i_catalog-product-more'}>
 						<span onClick={() => {
 							loadMore()
-						}}>Ещё</span>
+						}}>{t("MORE_TITLE")}</span>
 					</div>
 				)}
 			</div>

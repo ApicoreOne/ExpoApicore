@@ -4,6 +4,7 @@ import infoImg from "@/images/info.svg";
 import Cookies from "js-cookie";
 import emptySvg from '@/images/texpo/empty-box.svg'
 import StarFilled from "@/images/texpo/star-filled.svg?react";
+import {useTranslation} from "react-i18next";
 
 const FavoriteProductList = ({productList, hideProductCard}) => {
 	const dispatch = useDispatch();
@@ -12,6 +13,7 @@ const FavoriteProductList = ({productList, hideProductCard}) => {
 	const cookiesFavoriteProduct = Cookies.get('favoriteProduct')
 	const favoriteProductStore = useSelector(state => state.favorite.favoriteList)
 	const [favoriteProduct, setFavoriteProduct] = useState(cookiesFavoriteProduct ? JSON.parse(cookiesFavoriteProduct) : [])
+	const {t} = useTranslation(); // Переводы
 
 	useEffect(() => {
 		setFavoriteProduct(favoriteProductStore)
@@ -73,10 +75,10 @@ const FavoriteProductList = ({productList, hideProductCard}) => {
 				<>
 					<div className="i_catalog-product-head">
 						<div className="i_catalog-product-head-item name">
-							<span>Название</span>
+							<span>{t("PRODUCT_NAME")}</span>
 						</div>
 						<div className="i_catalog-product-head-item distributor-name">
-							<span>Экспонент</span>
+							<span>{t("EXPONENT_TITLE")}</span>
 						</div>
 
 					</div>
@@ -85,7 +87,7 @@ const FavoriteProductList = ({productList, hideProductCard}) => {
 							<div className="i_catalog-product-empty">
 								<div className="i_catalog-page-empty-title">
 									<img src={infoImg} alt=""/>
-									<span>Товары отсутствуют.</span>
+									<span>{t("PRODUCT_EMPTY")}</span>
 								</div>
 							</div>
 						)}
@@ -122,7 +124,7 @@ const FavoriteProductList = ({productList, hideProductCard}) => {
 			) : (
 				<div className={'i_empty-list'}>
 					<div className={'i_empty-list-title'}>
-						<span>Ваш список избранных товаров пуст</span>
+						<span>{t("FAVORITE_PRODUCT_TITLE_EMPTY")}</span>
 						<img src={emptySvg} alt=""/>
 					</div>
 				</div>

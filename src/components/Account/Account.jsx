@@ -2,12 +2,15 @@ import {useDispatch, useSelector} from "react-redux";
 import styles from './Account.module.scss'
 import AvatarSvg from '@/images/avatar.svg?react'
 import getLastDomainSegment from "@/utils/getLastDomainSegment.js";
+import {useTranslation} from "react-i18next";
 
 const Account = () => {
 	const authorized = useSelector(state => state.userData.authorization);
 	const lastSegment = getLastDomainSegment()
-	const currentDomain = window.location.hostname;
 	const dispatch = useDispatch();
+
+	const {t} = useTranslation(); // Переводы
+
 
 	return (
 		<>
@@ -18,7 +21,7 @@ const Account = () => {
 						<a href={`${lastSegment === 'd' ? 'http' : 'https'}://cabinet.apicore.kz`}
 						   className={styles.cabinetButton}>
 							<AvatarSvg/>
-							<span>Кабинет</span>
+							<span>{t("CABINET_TITLE")}</span>
 						</a>
 					</div>
 					:
@@ -31,7 +34,7 @@ const Account = () => {
 							})
 						}}>
 							<AvatarSvg/>
-							<span>Кабинет</span>
+							<span>{t("CABINET_TITLE")}</span>
 						</div>
 					</div>
 			}

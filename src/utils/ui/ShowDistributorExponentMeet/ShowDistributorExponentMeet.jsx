@@ -2,10 +2,12 @@ import styles from './ShowDistributorExponentMeet.module.scss'
 import CalendarIcon from '@/images/calendar.svg?react'
 import {useDispatch, useSelector} from "react-redux";
 import Cookies from "js-cookie";
+import {useTranslation} from "react-i18next";
 
 const ShowDistributorExponentMeet = () => {
 	const dispatch = useDispatch();
 	const authorized = useSelector(state => state.userData.authorization);
+	const {t} = useTranslation(); // Переводы
 
 	const openModal = () => {
 		const ExpoIDUser = Cookies.get('expo_user_id');
@@ -25,7 +27,7 @@ const ShowDistributorExponentMeet = () => {
 
 	return(
 		<div className={styles.showDistributorExponentMeet} onClick={openModal}>
-			<span>Встречи</span>
+			<span>{t("MEET_TITLE")}</span>
 			<CalendarIcon />
 		</div>
 	)

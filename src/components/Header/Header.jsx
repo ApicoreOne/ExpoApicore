@@ -31,6 +31,7 @@ const Header = () => {
 	}, []);
 
 	useEffect(()=>{
+		console.log(headerMonths)
 		if (url === '/' && headerMonths?.length > 0) {
 			setShowHeaderMonths(true);
 		}else{
