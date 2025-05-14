@@ -5,6 +5,7 @@ import { api } from "@/api/index";
 import preloaderImg from "@/images/tools/tube-spinner.svg";
 import styles from "./ExpoRegisterUser.module.scss";
 import {useTranslation} from "react-i18next";
+import {CustomInput} from "@/utils/ui/index.js";
 
 
 const ExpoRegisterUser = () => {
@@ -53,57 +54,10 @@ const ExpoRegisterUser = () => {
 			</div>
 
 			<div className={styles.items}>
-				<div className={styles.formItem}>
-					<label>{t("FIO_TITLE")}</label>
-					<input
-						type="text"
-						name="USER_NAME"
-						maxLength="50"
-						size="17"
-						value={name}
-						onChange={(e) => setName(e.target.value)}
-					/>
-				</div>
-
-				<div className={styles.formItem}>
-					<label>{t("COMPANY_TITLE")}</label>
-					<input
-						type="text"
-						name="USER_COMPANY"
-						maxLength="50"
-						size="17"
-						value={company}
-						onChange={(e) => setCompany(e.target.value)}
-					/>
-				</div>
-
-				<div className={styles.formItem}>
-					<label>{t("PHONE_TITLE")}</label>
-					<input
-						type="text"
-						name="USER_PHONE"
-						maxLength="50"
-						size="17"
-						value={phone}
-						onChange={(e) => {
-							const value = e.target.value;
-							const filteredValue = value.replace(/[^+\d]/g, "");
-							setPhone(filteredValue);
-						}}
-					/>
-				</div>
-
-				<div className={styles.formItem}>
-					<label>{t("EMAIL_TITLE")}</label>
-					<input
-						type="text"
-						name="USER_EMAIL"
-						maxLength="50"
-						size="17"
-						value={email}
-						onChange={(e) => setEmail(e.target.value)}
-					/>
-				</div>
+				<CustomInput title={t("FIO_TITLE")} onChange={setName} required={true}/>
+				<CustomInput title={t("COMPANY_TITLE")} onChange={setCompany} required={true}/>
+				<CustomInput title={t("PHONE_TITLE")} onChange={setPhone} type={"number"} value={phone}/>
+				<CustomInput title={t("EMAIL_TITLE")} onChange={setEmail} required={true}/>
 			</div>
 
 			<div className={styles.formError}>

@@ -96,13 +96,12 @@ const CustomInput = ({
 					maxLength={maxLength}
 				/>
 			) : type === "number" ? (
-				<InputMask
-					mask=""
+				<input
 					value={value}
-					alwaysShowMask={false}
 					onChange={(e) => {
-						const onlyNumbers = e.target.value.replace(/\D/g, "");
-						onChange(onlyNumbers);
+						const value = e.target.value;
+						const filteredValue = value.replace(/[^+\d]/g, "");
+						onChange(filteredValue);
 					}}
 					inputMode="numeric"
 					readOnly={readOnly}  // Добавляем поддержку readOnly
