@@ -35,7 +35,7 @@ const Banner = () => {
 
 	// Инициализация Vanta после того, как DOM готов
 	useEffect(() => {
-		if (!vantaEffect && exponentData.code !== "ecom-retail") {
+		if (!vantaEffect && exponentData.code === "texpo4") {
 			import('vanta/dist/vanta.halo.min').then((VANTA) => {
 				const effect = VANTA.default({
 					el: bannerRef.current,
