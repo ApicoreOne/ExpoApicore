@@ -1,3 +1,10 @@
+.expoListItems{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
 .expoListItem {
   text-decoration: none;
   color: #000;
@@ -89,8 +96,8 @@
 
   .expoListPartner {
     flex-shrink: 0;
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     display: flex;
     justify-content: center;
     align-items: center;
