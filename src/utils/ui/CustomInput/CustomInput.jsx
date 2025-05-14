@@ -96,7 +96,7 @@ const CustomInput = ({
 					maxLength={maxLength}
 				/>
 			) : type === "number" ? (
-				<InputMask
+				<input
 					value={value}
 					onChange={(e) => {
 						const value = e.target.value;
