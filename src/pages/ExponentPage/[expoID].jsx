@@ -38,10 +38,6 @@ const ExponentPage = () => {
 		getData();
 	}, [expoID]);
 
-	useEffect(() => {
-		getData()
-	}, []);
-
 	return (
 		<>
 			{!isLoading && (

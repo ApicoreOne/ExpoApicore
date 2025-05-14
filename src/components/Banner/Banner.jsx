@@ -67,7 +67,7 @@ const Banner = () => {
 	return (
 		<div ref={bannerRef} className={styles.banner}>
 			<div className={styles.bannerImg}>
-				<img src={exponentData?.logo} alt=""/>
+				<img src={exponentData.logo_black ? exponentData?.logo_black : exponentData?.logo_white} alt=""/>
 			</div>
 		</div>
 	);
