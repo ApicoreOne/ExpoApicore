@@ -17,7 +17,7 @@ const LanguageSelector = ({ setCurrentLanguage, language }) => {
 	const languageOptions = [
 		{ value: 'en', label: 'En' },
 		{ value: 'ru', label: 'Ру' },
-		{ value: 'uz', label: 'Uz' },
+		{ value: 'uz', label: 'Оʻz' },
 		{ value: 'cn', label: '中文' },
 	];
 

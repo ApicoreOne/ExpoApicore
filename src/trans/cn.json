@@ -35,5 +35,14 @@
   "MEETING_WITH": "会见",
   "MEETING_POPUP_QUESTION": "是否要占用该时段",
   "YES": "是",
-  "NO": "否"
+  "NO": "否",
+  "CATEGORIES_TITLE": "类别",
+  "CATEGORIES_EMPTY": "暂无类别.",
+  "CONTACTS_INFO_TITLE": "联系方式",
+  "CONTACTS_INFO_SUBTITLE": "请填写表格以查看所有参展商的目录",
+  "FIO_TITLE": "姓名",
+  "PHONE_TITLE": "电话",
+  "EMAIL_TITLE": "邮箱",
+  "COMPANY_TITLE": "公司",
+  "SEND_BTN_TITLE": "发送"
 }

@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { api } from "@/api/index";
 import preloaderImg from "@/images/tools/tube-spinner.svg";
 import styles from "./ExpoRegisterUser.module.scss";
+import {useTranslation} from "react-i18next";
 
 
 const ExpoRegisterUser = () => {
@@ -15,6 +16,7 @@ const ExpoRegisterUser = () => {
 	const [error, setError] = useState("");
 
 	const catalogHash = useSelector((state) => state.multiModal.modals[0].modalData.hash);
+	const {t} = useTranslation()
 
 	const sendRegisterUser = async () => {
 		setBtnLoad(true);
@@ -42,17 +44,17 @@ const ExpoRegisterUser = () => {
 	return (
 		<div className={styles.texpoRegister}>
 			<div className={styles.modalTitle}>
-				<span>Контактные данные</span>
+				<span>{t("CONTACTS_INFO_TITLE")}</span>
 			</div>
 			<div className={styles.modalSubtitle}>
         <span>
-          Для просмотра каталогов всех экспонентов заполните пожалуйста форму
+          {t("CONTACTS_INFO_SUBTITLE")}
         </span>
 			</div>
 
 			<div className={styles.items}>
 				<div className={styles.formItem}>
-					<label>ФИО</label>
+					<label>{t("FIO_TITLE")}</label>
 					<input
 						type="text"
 						name="USER_NAME"
@@ -64,7 +66,7 @@ const ExpoRegisterUser = () => {
 				</div>
 
 				<div className={styles.formItem}>
-					<label>Компания</label>
+					<label>{t("COMPANY_TITLE")}</label>
 					<input
 						type="text"
 						name="USER_COMPANY"
@@ -76,7 +78,7 @@ const ExpoRegisterUser = () => {
 				</div>
 
 				<div className={styles.formItem}>
-					<label>Телефон</label>
+					<label>{t("PHONE_TITLE")}</label>
 					<input
 						type="text"
 						name="USER_PHONE"
@@ -92,7 +94,7 @@ const ExpoRegisterUser = () => {
 				</div>
 
 				<div className={styles.formItem}>
-					<label>Email</label>
+					<label>{t("EMAIL_TITLE")}</label>
 					<input
 						type="text"
 						name="USER_EMAIL"
@@ -114,7 +116,7 @@ const ExpoRegisterUser = () => {
 						<img src={preloaderImg} alt="" />
 					</div>
 					<button className={styles.authBtn} onClick={sendRegisterUser}>
-						<span>Отправить</span>
+						<span>{t("SEND_BTN_TITLE")}</span>
 					</button>
 				</div>
 			</div>

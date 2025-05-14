@@ -35,5 +35,14 @@
   "MEETING_WITH": "Meeting with",
   "MEETING_POPUP_QUESTION": "Do you want to take the slot on",
   "YES": "Yes",
-  "NO": "No"
+  "NO": "No",
+  "CATEGORIES_TITLE": "Categories",
+  "CATEGORIES_EMPTY": "No categories available.",
+  "CONTACTS_INFO_TITLE": "Contact Information",
+  "CONTACTS_INFO_SUBTITLE": "Please fill out the form to view the catalogs of all exhibitors",
+  "FIO_TITLE": "Full Name",
+  "PHONE_TITLE": "Phone",
+  "EMAIL_TITLE": "Email",
+  "COMPANY_TITLE": "Company",
+  "SEND_BTN_TITLE": "Send"
 }

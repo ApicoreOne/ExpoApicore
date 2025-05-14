@@ -35,5 +35,14 @@
   "MEETING_WITH": "Bilan uchrashuv",
   "MEETING_POPUP_QUESTION": "Ushbu slotni olishni xohlaysizmi",
   "YES": "Ha",
-  "NO": "Yo'q"
+  "NO": "Yo'q",
+  "CATEGORIES_TITLE": "Kategoriyalar",
+  "CATEGORIES_EMPTY": "Kategoriyalar mavjud emas.",
+  "CONTACTS_INFO_TITLE": "Aloqa ma'lumotlari",
+  "CONTACTS_INFO_SUBTITLE": "Barcha ekspozitsiyalar kataloglarini ko'rish uchun iltimos, formani to'ldiring",
+  "FIO_TITLE": "F.I.O",
+  "PHONE_TITLE": "Telefon",
+  "EMAIL_TITLE": "Email",
+  "COMPANY_TITLE": "Kompaniya",
+  "SEND_BTN_TITLE": "Yuborish"
 }

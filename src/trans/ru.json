@@ -35,5 +35,14 @@
   "MEETING_WITH": "Встреча с",
   "MEETING_POPUP_QUESTION": "Хотите занять слот на",
   "YES" : "Да",
-  "NO" : "Нет"
+  "NO" : "Нет",
+  "CATEGORIES_TITLE": "Категории",
+  "CATEGORIES_EMPTY": "Категории отсутствуют.",
+  "CONTACTS_INFO_TITLE": "Контактные данные",
+  "CONTACTS_INFO_SUBTITLE": "Для просмотра каталогов всех экспонентов заполните пожалуйста форму",
+  "FIO_TITLE": "ФИО",
+  "PHONE_TITLE": "Телефон",
+  "EMAIL_TITLE": "Email",
+  "COMPANY_TITLE": "Компания",
+  "SEND_BTN_TITLE": "Отправить"
 }
