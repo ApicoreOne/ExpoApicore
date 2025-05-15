@@ -59,6 +59,9 @@ const FavoriteProductList = ({productList, hideProductCard}) => {
 			{productList && productList.length > 0 ? (
 				<>
 					<div className="i_catalog-product-head">
+						<div className="i_catalog-product-head-item image">
+							<span>{t("PRODUCT_IMAGE")}</span>
+						</div>
 						<div className="i_catalog-product-head-item name">
 							<span>{t("PRODUCT_NAME")}</span>
 						</div>
@@ -73,6 +76,9 @@ const FavoriteProductList = ({productList, hideProductCard}) => {
 								key={product.id}
 								onClick={() => openCatalogDetailModal(product.id)}
 							>
+								<div className="i_catalog-product-item-image">
+									<img src={product.images} alt=""/>
+								</div>
 								<div className="i_catalog-product-item-name">
 									<span>{product.name}</span>
 								</div>
