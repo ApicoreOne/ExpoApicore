@@ -9,7 +9,7 @@ const FavoriteProductListModal = () => {
 	const favoriteProductStore = useSelector(state => state.favorite.favoriteList)
 	const [productListState, setProductListState] = useState([])
 	const [isLoading, setIsLoading] = useState(true)
-	const currentExponentCode = useSelector(state => state.exponent.currentExponentCode)
+	const currentExponentCode = useSelector(state => state.exponent.exponentData.code)
 	const {t} = useTranslation(); // Переводы
 
 	const getData = async () => {
