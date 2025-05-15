@@ -19,6 +19,7 @@
   "PRODUCT_PRICE": "Price",
   "PRODUCT_PRICE_EMPTY": "No price",
   "PRODUCT_EMPTY": "No products available.",
+  "PRODUCT_IMAGE": "Image",
   "CATALOG_ROOT": "Root Section",
   "PROPERTY_TITLE": "Properties",
   "PROPERTY_EMPTY": "No properties available.",
@@ -44,5 +45,9 @@
   "PHONE_TITLE": "Phone",
   "EMAIL_TITLE": "Email",
   "COMPANY_TITLE": "Company",
-  "SEND_BTN_TITLE": "Send"
+  "SEND_BTN_TITLE": "Send",
+  "COUNTRY_TITLE": "Country",
+  "CONTACT_PHONE_TITLE": "Phone Number",
+  "CONTACT_PERSON_TITLE": "Contact Person",
+  "ABOUT_COMPANY_TITLE": "About the Company"
 }

@@ -16,6 +16,7 @@ const ProductList = ({productList, hideProductCard}) => {
 	const favoriteProductStore = useSelector(state => state.favorite.favoriteList)
 	const [favoriteProduct, setFavoriteProduct] = useState(cookiesFavoriteProduct ? JSON.parse(cookiesFavoriteProduct) : [])
 	const {t} = useTranslation(); // Переводы
+	const currentExponentCode = useSelector(state => state.exponent.exponentData.code)
 
 	useEffect(() => {
 		setFavoriteProduct(favoriteProductStore)
@@ -23,21 +24,31 @@ const ProductList = ({productList, hideProductCard}) => {
 
 	const addToFavorite = (e, productID) => {
 		e.stopPropagation();
-		let updatedFavoriteProduct
-		// Проверяем, есть ли productID в массиве favoriteProduct
-		if (favoriteProduct.includes(productID)) {
-			// Если продукт уже есть в массиве, удаляем его
-			updatedFavoriteProduct = favoriteProduct.filter(item => item !== productID)
-		} else {
-			// Если продукта нет, добавляем его
-			updatedFavoriteProduct = [...favoriteProduct, productID]
+
+		// Получаем текущее состояние избранных продуктов для всех выставок
+		const updatedFavoriteProduct = {...favoriteProduct};
+
+		// Инициализируем список для текущей выставки, если он отсутствует
+		if (!updatedFavoriteProduct[currentExponentCode]) {
+			updatedFavoriteProduct[currentExponentCode] = [];
 		}
 
-		dispatch({type: "SET_FAVORITE_LIST", favoriteList: updatedFavoriteProduct})
-		setFavoriteProduct(updatedFavoriteProduct)
+		// Проверяем, есть ли productID в массиве текущей выставки
+		if (updatedFavoriteProduct[currentExponentCode].includes(productID)) {
+			// Если продукт уже есть в массиве, удаляем его
+			updatedFavoriteProduct[currentExponentCode] = updatedFavoriteProduct[currentExponentCode].filter(item => item !== productID);
+		} else {
+			// Если продукта нет, добавляем его
+			updatedFavoriteProduct[currentExponentCode].push(productID);
+		}
 
-		Cookies.set('favoriteProduct', JSON.stringify(updatedFavoriteProduct), {expires: 365})
-	}
+		console.log(updatedFavoriteProduct);
+
+		// Сохраняем изменения в store и куках
+		dispatch({type: "SET_FAVORITE_LIST", favoriteList: updatedFavoriteProduct});
+		setFavoriteProduct(updatedFavoriteProduct);
+		Cookies.set('favoriteProduct', JSON.stringify(updatedFavoriteProduct), {expires: 365});
+	};
 
 	//Функция для открытия модального окна с информацией о товаре
 	const openCatalogDetailModal = (id) => {
@@ -80,6 +91,9 @@ const ProductList = ({productList, hideProductCard}) => {
 				<div className="i_catalog-product-head-item id">
 					<span>{t("PRODUCT_ID")}</span>
 				</div>
+				<div className="i_catalog-product-head-item image">
+					<span>{t("PRODUCT_IMAGE")}</span>
+				</div>
 				<div className="i_catalog-product-head-item name">
 					<span>{t("PRODUCT_NAME")}</span>
 				</div>
@@ -101,9 +115,9 @@ const ProductList = ({productList, hideProductCard}) => {
 				)}
 				{
 					productList?.length > 0 ? productList?.map((product, index) => {
-						let price = product.prices && product.prices.price !== 'null' ? product.prices.price : t('PRODUCT_PRICE_EMPTY');
+						let price = product.prices && product.prices.price !== 'null' ? product.prices.print_price : t('PRODUCT_PRICE_EMPTY');
 						return (
-							<div className={`i_catalog-product-item`} key={product.id} onClick={()=>{
+							<div className={`i_catalog-product-item`} key={product.id} onClick={() => {
 								openCatalogDetailModal(product.id)
 							}}>
 								<div className="i_catalog-product-item-active">
@@ -111,6 +125,9 @@ const ProductList = ({productList, hideProductCard}) => {
 								</div>
 								<div className="i_catalog-product-item-id">
 									<span>{product.id}</span>
+								</div>
+								<div className="i_catalog-product-item-image">
+									<img src={product.image} alt=""/>
 								</div>
 								<div className="i_catalog-product-item-name">
 									<span>{product.name}</span>
@@ -123,9 +140,11 @@ const ProductList = ({productList, hideProductCard}) => {
 									<span className={'i_catalog-product-item-title'}>{t("PRODUCT_PRICE")}: </span>
 									<span>{price ? price : t('PRODUCT_PRICE_EMPTY')}</span>
 								</div>
-								<div className="i_catalog-product-item-favorite" onClick={(e)=>{addToFavorite(e, product.id)}}>
+								<div className="i_catalog-product-item-favorite" onClick={(e) => {
+									addToFavorite(e, product.id)
+								}}>
 									{
-										favoriteProduct?.includes(product.id) ? <StarFilled /> : <StarLined />
+										favoriteProduct[currentExponentCode]?.includes(product.id) ? <StarFilled/> : <StarLined/>
 									}
 								</div>
 							</div>

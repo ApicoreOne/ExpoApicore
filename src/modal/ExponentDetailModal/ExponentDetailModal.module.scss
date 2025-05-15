@@ -1,0 +1,56 @@
+.modal{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  height: 100%;
+
+  .modalTitle {
+    font-size: 1.125rem;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+}
+
+.modalItemLogo{
+  max-width: 200px;
+  max-height: 200px;
+  min-width: 200px;
+  min-height: 200px;
+
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.exponentSocials {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  min-height: 25px;
+}
+
+.exponentSocial {
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 25px;
+      height: auto;
+      fill: #ccc;
+      transition: all .4s ease;
+    }
+  }
+
+  &:hover {
+    a {
+      svg {
+        fill: #f11f1f;
+      }
+    }
+  }
+}

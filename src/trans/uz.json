@@ -19,6 +19,7 @@
   "PRODUCT_PRICE": "Narxi",
   "PRODUCT_PRICE_EMPTY": "Narxi mavjud emas",
   "PRODUCT_EMPTY": "Mahsulotlar mavjud emas.",
+  "PRODUCT_IMAGE": "Rasm",
   "CATALOG_ROOT": "Asosiy bo'lim",
   "PROPERTY_TITLE": "Xususiyatlar",
   "PROPERTY_EMPTY": "Xususiyatlar mavjud emas.",
@@ -44,5 +45,9 @@
   "PHONE_TITLE": "Telefon",
   "EMAIL_TITLE": "Email",
   "COMPANY_TITLE": "Kompaniya",
-  "SEND_BTN_TITLE": "Yuborish"
+  "SEND_BTN_TITLE": "Yuborish",
+  "COUNTRY_TITLE": "Mamlakat",
+  "CONTACT_PHONE_TITLE": "Telefon raqami",
+  "CONTACT_PERSON_TITLE": "Aloqa shaxsi",
+  "ABOUT_COMPANY_TITLE": "Kompaniya haqida"
 }

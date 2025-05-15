@@ -35,10 +35,7 @@ const ProductDetailModal = () => {
 	const cookiesFavoriteProduct = Cookies.get('favoriteProduct')
 	const favoriteProductStore = useSelector(state => state.favorite.favoriteList)
 	const [favoriteProduct, setFavoriteProduct] = useState(cookiesFavoriteProduct ? JSON.parse(cookiesFavoriteProduct) : [])
-
-	useEffect(() => {
-		setFavoriteProduct(favoriteProductStore)
-	}, [favoriteProductStore])
+	const currentExponentCode = useSelector(state => state.exponent.exponentData.code)
 
 	//Табы для props
 	const [currentPropsTab, setCurrentPropsTab] = useState('props')
@@ -86,23 +83,32 @@ const ProductDetailModal = () => {
 		}
 	}
 
+	useEffect(() => {
+		setFavoriteProduct(favoriteProductStore);
+	}, [favoriteProductStore]);
+
+	// Функция добавления/удаления продукта в избранное
 	const addToFavorite = (e, productID) => {
 		e.stopPropagation();
-		let updatedFavoriteProduct
-		// Проверяем, есть ли productID в массиве favoriteProduct
-		if (favoriteProduct.includes(productID)) {
-			// Если продукт уже есть в массиве, удаляем его
-			updatedFavoriteProduct = favoriteProduct.filter(item => item !== productID)
-		} else {
-			// Если продукта нет, добавляем его
-			updatedFavoriteProduct = [...favoriteProduct, productID]
+
+		// Инициализация структуры избранных товаров, если она отсутствует
+		const updatedFavoriteProduct = {...favoriteProduct};
+		if (!Array.isArray(updatedFavoriteProduct[currentExponentCode])) {
+			updatedFavoriteProduct[currentExponentCode] = [];
 		}
 
-		dispatch({type: "SET_FAVORITE_LIST", favoriteList: updatedFavoriteProduct})
-		setFavoriteProduct(updatedFavoriteProduct)
+		// Добавляем или удаляем продукт
+		if (updatedFavoriteProduct[currentExponentCode].includes(productID)) {
+			updatedFavoriteProduct[currentExponentCode] = updatedFavoriteProduct[currentExponentCode].filter(item => item !== productID);
+		} else {
+			updatedFavoriteProduct[currentExponentCode].push(productID);
+		}
 
-		Cookies.set('favoriteProduct', JSON.stringify(updatedFavoriteProduct), {expires: 365})
-	}
+		// Обновляем состояние и куки
+		dispatch({type: "SET_FAVORITE_LIST", favoriteList: updatedFavoriteProduct});
+		setFavoriteProduct(updatedFavoriteProduct);
+		Cookies.set('favoriteProduct', JSON.stringify(updatedFavoriteProduct), {expires: 365});
+	};
 
 	return (
 		<>
@@ -113,9 +119,13 @@ const ProductDetailModal = () => {
 					<div className="i_product-detail-title">
 						<span>{productDetail.name}</span>
 					</div>
-					<div className="i_product-detail-favorite"  onClick={(e)=>{addToFavorite(e, productDetail.id)}}>
+					<div className="i_product-detail-favorite" onClick={(e) => {
+						addToFavorite(e, productDetail.id)
+					}}>
 						{
-							favoriteProduct.includes(productDetail.id) ? <StarFilled /> : <StarLined />
+							Array.isArray(favoriteProduct[currentExponentCode]) && favoriteProduct[currentExponentCode].includes(productDetail.id)
+								? <StarFilled/>
+								: <StarLined/>
 						}
 					</div>
 					<div className="i_product-detail-content">
@@ -221,7 +231,7 @@ const ProductDetailModal = () => {
 								<span className="i_product-detail-content-title">{t("DESCRIPTION_TITLE")}</span>
 								{productDetail.description?.description ? (
 										<>
-                      <div dangerouslySetInnerHTML={{__html: productDetail.description.description}}></div>
+											<div dangerouslySetInnerHTML={{__html: productDetail.description.description}}></div>
 										</>
 									) :
 									<>

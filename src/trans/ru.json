@@ -19,6 +19,7 @@
   "PRODUCT_PRICE": "Цена",
   "PRODUCT_PRICE_EMPTY": "Нет цены",
   "PRODUCT_EMPTY": "Товары отсутствуют.",
+  "PRODUCT_IMAGE": "Картинка",
   "CATALOG_ROOT": "Корневой раздел",
   "PROPERTY_TITLE": "Свойства",
   "PROPERTY_EMPTY": "Свойства отсутствуют.",
@@ -44,5 +45,9 @@
   "PHONE_TITLE": "Телефон",
   "EMAIL_TITLE": "Email",
   "COMPANY_TITLE": "Компания",
-  "SEND_BTN_TITLE": "Отправить"
+  "SEND_BTN_TITLE": "Отправить",
+  "COUNTRY_TITLE": "Страна",
+  "CONTACT_PHONE_TITLE": "Номер телефона",
+  "CONTACT_PERSON_TITLE": "Контактное лицо",
+  "ABOUT_COMPANY_TITLE": "О компании"
 }
