@@ -12,6 +12,7 @@ const ExponentMeet = ({item}) => {
 		e.stopPropagation()
 
 		const ExpoIDUser = Cookies.get('expo_user_id');
+
 		// Если пользователь идентифицирован по cookie, просто выводим в консоль
 		if (ExpoIDUser && authorized !== true) {
 			dispatch({type: "OPEN_MODAL", modalType: 'exponentMeetModal', modalLevel: 1, modalData:{item:item}})

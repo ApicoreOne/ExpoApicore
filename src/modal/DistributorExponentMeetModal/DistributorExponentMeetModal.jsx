@@ -69,7 +69,7 @@ const DistributorExponentMeetModal = () => {
 			<ScrollBox>
 				<div className={styles.modalContent}>
 					<div className={styles.modalContentDate}>
-						<span>2025 г. {t("MAY")}</span>
+						<span>{t("MEETING_DATE")}</span>
 					</div>
 
 					<div className={styles.modalContentDateItems}>

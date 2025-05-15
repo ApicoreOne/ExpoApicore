@@ -83,7 +83,7 @@ const ExponentItem = ({item}) => {
 				}
 			</div>
 
-			<ExponentMeet item={item}/>
+			{authorized !== true && <ExponentMeet item={item}/>}
 		</div>
 	)
 }
