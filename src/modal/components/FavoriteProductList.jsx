@@ -60,7 +60,7 @@ const FavoriteProductList = ({productList, hideProductCard}) => {
 				<>
 					<div className="i_catalog-product-head">
 						<div className="i_catalog-product-head-item image">
-							<span>{t("PRODUCT_IMAGE")}</span>
+							<span></span>
 						</div>
 						<div className="i_catalog-product-head-item name">
 							<span>{t("PRODUCT_NAME")}</span>

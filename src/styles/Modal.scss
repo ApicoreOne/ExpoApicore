@@ -709,16 +709,16 @@
           }
 
           .i_catalog-product-item {
-            grid-template-columns: repeat(1, 1fr) !important;
+            grid-template-columns: repeat(10, 1fr) !important;
             padding: 10px 0 !important;
 
             .i_catalog-product-item-name {
-              grid-column: span 1;
+              grid-column: span 7;
               width: 90%;
             }
 
             .i_catalog-product-item-distributor-name {
-              grid-column: span 1;
+              grid-column: span 7;
               width: 100%;
               padding: 0;
             }
@@ -803,8 +803,8 @@
           transition: all .4s ease;
 
           .i_catalog-product-item-image{
-            width: 80px;
-            height: 80px;
+            width: 50px;
+            height: 50px;
             display: flex;
             justify-content: center;
             align-items: center;
