@@ -12,6 +12,9 @@ const AddExponentMeetPopup = () => {
 	const currentExponentMeetingDate = useSelector(state => state.exponent.exponentMeeting.currentExponentMeetingDate)
 	const currentExponentCode = useSelector(state => state.exponent.currentExponentCode)
 	const {t} = useTranslation()
+
+
+	console.log(currentExponentCode)
 	const formSubmit = async () => {
 		try{
 

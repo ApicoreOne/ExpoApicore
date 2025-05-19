@@ -36,7 +36,10 @@ const ExponentPage = () => {
 		// Прокрутка страницы наверх
 		window.scrollTo({ top: 0, left: 0 });
 		getData();
+		dispatch({type: "SET_CURRENT_EXPONENT_CODE", currentExponentCode: expoID});
 	}, [expoID]);
+
+
 
 	return (
 		<>
