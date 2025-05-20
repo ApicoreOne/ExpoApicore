@@ -10,7 +10,7 @@ import {useTranslation} from "react-i18next";
 const DistributorExponentMeetModal = () => {
 	const dispatch = useDispatch()
 
-	const [currentDate, setCurrentDate] = useState('20.04.2025')
+	const [currentDate, setCurrentDate] = useState('20.05.2025')
 	const ExpoIDUser = Cookies.get('expo_user_id');
 	const authorized = useSelector(state => state.userData.authorization);
 	const authEntity = useSelector(state => state.userData.entity);

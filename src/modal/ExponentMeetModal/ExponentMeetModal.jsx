@@ -11,7 +11,7 @@ const ExponentMeetModal = () => {
 
 	const {item} = useSelector(state => state.multiModal.modals[0].modalData)
 
-	const [currentDate, setCurrentDate] = useState('20.04.2025')
+	const [currentDate, setCurrentDate] = useState('20.05.2025')
 	const {t} = useTranslation()
 	const modalDate = [
 		{name: 20, value: '20.05.2025'},
