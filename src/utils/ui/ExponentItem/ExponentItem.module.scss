@@ -50,9 +50,10 @@
   @include title_limit(2);
 }
 
-.exponentType {
+.exponentType,
+.exponentSite{
   color: #637381;
-  margin-bottom: 1.25rem;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;

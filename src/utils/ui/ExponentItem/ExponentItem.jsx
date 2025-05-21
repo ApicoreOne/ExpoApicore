@@ -57,6 +57,10 @@ const ExponentItem = ({item}) => {
 				{(ExpoIDUser || authorized) && <a href={`tel:+${item.phone}`} onClick={(e)=>{e.stopPropagation()}}>{item.phone}</a>}
 			</div>
 
+			<div className={styles.exponentSite}>
+				<a href={item.web} target={'_blank'}>{item.web}</a>
+			</div>
+
 			<div className={styles.exponentSocials}>
 				{
 					socials.map((social, index) => {
