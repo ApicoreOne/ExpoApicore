@@ -7,6 +7,7 @@ import YoutubeLogo from '@/images/social/youtube.svg?react';
 import {ExponentMeet, ExponentQrCode, ExponentShowCatalog} from "@/utils/ui/";
 import Cookies from "js-cookie";
 import {useDispatch, useSelector} from "react-redux";
+import useNormalizedUrl from "@/hooks/useNormalizedUrl.js";
 
 const ExponentItem = ({item}) => {
 
@@ -14,6 +15,7 @@ const ExponentItem = ({item}) => {
 
 	const authorized = useSelector(state => state.userData.authorization);
 	const ExpoIDUser = Cookies.get('expo_user_id');
+	const { href: normalizedHref, text: displayText } = useNormalizedUrl(item.web);
 
 	const socials = [
 		{
@@ -54,12 +56,18 @@ const ExponentItem = ({item}) => {
 
 			<div className={styles.exponentType}>
 				<span>{item.contact}</span>
-				{(ExpoIDUser || authorized) && <a href={`tel:+${item.phone}`} onClick={(e)=>{e.stopPropagation()}}>{item.phone}</a>}
+				{(ExpoIDUser || authorized) && <a href={`tel:+${item.phone}`} onClick={(e) => {
+					e.stopPropagation()
+				}}>{item.phone}</a>}
+				<div className={styles.exponentSite}>
+					{normalizedHref && (
+						<a href={normalizedHref} target="_blank" onClick={(e) => e.stopPropagation()}>
+							{displayText}
+						</a>
+					)}
+				</div>
 			</div>
 
-			<div className={styles.exponentSite}>
-				<a href={item.web} target={'_blank'}>{item.web}</a>
-			</div>
 
 			<div className={styles.exponentSocials}>
 				{

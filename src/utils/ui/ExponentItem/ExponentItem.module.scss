@@ -50,8 +50,7 @@
   @include title_limit(2);
 }
 
-.exponentType,
-.exponentSite{
+.exponentType{
   color: #637381;
   margin-bottom: 10px;
   display: flex;
@@ -59,6 +58,7 @@
   gap: 10px;
   align-items: center;
   text-align: center;
+  height: 85px;
   a{
     text-decoration: none;
     color: #3758f9;
