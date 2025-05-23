@@ -49,5 +49,6 @@
   "COUNTRY_TITLE": "Страна",
   "CONTACT_PHONE_TITLE": "Номер телефона",
   "CONTACT_PERSON_TITLE": "Контактное лицо",
-  "ABOUT_COMPANY_TITLE": "О компании"
+  "ABOUT_COMPANY_TITLE": "О компании",
+  "EMPTY_CONTENT": "Информация отсутствует."
 }

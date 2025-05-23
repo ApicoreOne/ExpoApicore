@@ -49,5 +49,6 @@
   "COUNTRY_TITLE": "国家",
   "CONTACT_PHONE_TITLE": "电话号码",
   "CONTACT_PERSON_TITLE": "联系人",
-  "ABOUT_COMPANY_TITLE": "公司介绍"
+  "ABOUT_COMPANY_TITLE": "公司介绍",
+  "EMPTY_CONTENT": "暂无信息."
 }

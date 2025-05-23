@@ -8,6 +8,7 @@ import InstagramLogo from '@/images/social/instagram.svg?react';
 import TelegramLogo from '@/images/social/telegram.svg?react';
 import WhatsappLogo from '@/images/social/whatsapp.svg?react';
 import YoutubeLogo from '@/images/social/youtube.svg?react';
+import EmptyBlock from "@/utils/ui/EmptyBlock/EmptyBlock.jsx";
 const ExponentDetailModal = () => {
 
 	const {item} = useSelector(state => state.multiModal.modals[0].modalData)
@@ -86,8 +87,17 @@ const ExponentDetailModal = () => {
 						}
 					</div>
 					<div className={styles.modalItem}>
-						<span>{t("ABOUT_COMPANY_TITLE")}: <br/><br/> <div
-							dangerouslySetInnerHTML={{__html: detail?.info?.text_file_info}}></div></span>
+						{
+							detail?.info?.text_file_info ? (
+								<span>{t("ABOUT_COMPANY_TITLE")}: <br/><br/> <div
+									dangerouslySetInnerHTML={{__html: detail?.info?.text_file_info}}></div>
+								</span>
+							) :
+							<span>
+								{t("ABOUT_COMPANY_TITLE")}: <EmptyBlock title={t("EMPTY_CONTENT")}/>
+							</span>
+						}
+
 					</div>
 				</ScrollBox>
 			</div>

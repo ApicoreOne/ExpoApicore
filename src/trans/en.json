@@ -49,5 +49,6 @@
   "COUNTRY_TITLE": "Country",
   "CONTACT_PHONE_TITLE": "Phone Number",
   "CONTACT_PERSON_TITLE": "Contact Person",
-  "ABOUT_COMPANY_TITLE": "About the Company"
+  "ABOUT_COMPANY_TITLE": "About the Company",
+  "EMPTY_CONTENT": "Information not available."
 }
